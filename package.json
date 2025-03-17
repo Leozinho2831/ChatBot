@@ -3,8 +3,7 @@
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "tailwind-scrollbar": "^4.0.1"
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
