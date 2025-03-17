@@ -10,4 +10,15 @@
     .hoverBg:has(.hoverBg:hover){
         background-color: transparent;
     }
+      
+    .scrollable::-webkit-scrollbar {
+        width: 8px;
+        padding: 1px;
+    }
+      
+    .scrollable::-webkit-scrollbar-thumb {
+        background-color: theme(colors.gray.800);
+        border-radius: 10px;
+        padding: 1px;
+    }
 }
