@@ -10,19 +10,19 @@
     <title>ChatBot</title>
 </head>
 <body class="font-inter grid grid-cols-[minmax(250px,20%)_auto] grid-rows-1 min-h-screen">
-    <header class="grid grid-rows-[auto_auto_auto_1fr] gap-8 py-6 bg-gray-900">
+    <header class="grid grid-rows-[auto_auto_auto_1fr] gap-8 p-[3px] py-6 bg-gray-900">
         <div class="px-6 space-y-5">
             <figure class="inline-flex items-center justify-center w-12 h-12 !p-0 hoverBg">
                 <img src="src/images/menu.svg" alt="menu">
             </figure>
         </div>
         <div class="px-6">
-            <button class="uppercase font-semibold text-sm text-gray-400 flex items-center gap-4 px-4 py-3 bg-gray-950/60 rounded-full">
+            <button class="uppercase font-semibold text-sm text-gray-400 flex items-center gap-4 px-4 py-3 bg-gray-950/60 rounded-full hover:bg-gray-950">
                 <img class="w-4 h-4" src="src/images/plus.svg" alt="Sinal de mais">
                 <p>Nova conversa</p>
             </button>
         </div>
-        <nav class="overflow-y-auto max-h-[300px] px-3 space-y-1">
+        <nav class="overflow-y-auto max-h-[300px] px-3 space-y-1 scrollable">
             <h2 class="px-3">Recentes</h2>
             <div class="flex items-center gap-5 cursor-pointer hoverBg">
                 <!-- o tema da conversa -->
@@ -47,6 +47,69 @@
                 <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
                     <img src="src/images/options.svg" alt="options">
                 </figure>
+            </div>
+            <div class="flex items-center gap-5 cursor-pointer hoverBg">
+                <img class="w-4 h-4" src="src/images/arrow-menu.svg" alt="Mais">
+                <!-- abrir mais histórico -->
+                <p>Mais</p>
+            </div>
+            <!-- colocar block por js quando houver mais de 5 histórico -->
+            <div class="hidden space-y-1">
+                <div class="flex items-center gap-5 cursor-pointer hoverBg">
+                    <!-- o tema da conversa -->
+                    <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
+                        <div></div>
+                        <div></div>
+                        <div class="!w-[10px]"></div>
+                    </div>
+                    <p class="flex-1">Mensagem</p>
+                    <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                        <img src="src/images/options.svg" alt="options">
+                    </figure>
+                </div>
+                <div class="flex items-center gap-5 cursor-pointer hoverBg">
+                    <!-- o tema da conversa -->
+                    <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
+                        <div></div>
+                        <div></div>
+                        <div class="!w-[10px]"></div>
+                    </div>
+                    <p class="flex-1">Mensagem</p>
+                    <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                        <img src="src/images/options.svg" alt="options">
+                    </figure>
+                </div>
+            </div>
+            <div class="space-y-1 flex items-center gap-6 cursor-pointer hoverBg">
+                <img class="rotate-90 ml-[6px]" src="src/images/options.svg" alt="Carregar mais">
+                <p>Carregar mais</p>
+            </div>
+            <!-- colocar block por js quando houver mais de 10 histórico para carregar tudo -->
+            <div class="space-y-1">
+                <div class="flex items-center gap-5 cursor-pointer hoverBg">
+                    <!-- o tema da conversa -->
+                    <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
+                        <div></div>
+                        <div></div>
+                        <div class="!w-[10px]"></div>
+                    </div>
+                    <p class="flex-1">Mensagem</p>
+                    <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                        <img src="src/images/options.svg" alt="options">
+                    </figure>
+                </div>
+                <div class="flex items-center gap-5 cursor-pointer hoverBg">
+                    <!-- o tema da conversa -->
+                    <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
+                        <div></div>
+                        <div></div>
+                        <div class="!w-[10px]"></div>
+                    </div>
+                    <p class="flex-1">Mensagem</p>
+                    <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                        <img src="src/images/options.svg" alt="options">
+                    </figure>
+                </div>
             </div>
         </nav>
         <div class="self-end px-3">

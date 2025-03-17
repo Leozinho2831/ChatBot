@@ -571,6 +571,45 @@ video {
   background-color: transparent;
 }
 
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+  padding: 1px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #404040;
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+.ml-\[5px\] {
+  margin-left: 5px;
+}
+
+.ml-\[6px\] {
+  margin-left: 6px;
+}
+
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -631,8 +670,18 @@ video {
   width: 2rem;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .flex-1 {
   flex: 1 1 0%;
+}
+
+.rotate-90 {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -669,6 +718,22 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-\[\] {
+  gap: ;
+}
+
+.gap-\[24\] {
+  gap: 24;
+}
+
+.gap-\[22px\] {
+  gap: 22px;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
@@ -719,6 +784,22 @@ video {
   padding: 0px !important;
 }
 
+.p-\[1px\] {
+  padding: 1px;
+}
+
+.p-\[10px\] {
+  padding: 10px;
+}
+
+.p-\[2px\] {
+  padding: 2px;
+}
+
+.p-\[3px\] {
+  padding: 3px;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -764,14 +845,6 @@ video {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(178 178 178 / var(--tw-text-opacity, 1));
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .\*\:h-\[2px\] > * {
