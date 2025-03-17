@@ -9,7 +9,6 @@ module.exports = {
             'desktop': '1024px',
             },
             fontFamily: {
-                poppins: ['Poppins', 'sans-serif'], 
                 inter: ['Inter', 'Arial' ,'sans-serif'],
             },
             colors: {

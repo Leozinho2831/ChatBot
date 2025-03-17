@@ -603,10 +603,6 @@ video {
   height: 2rem;
 }
 
-.h-\[10px\] {
-  height: 10px;
-}
-
 .max-h-\[300px\] {
   max-height: 300px;
 }
@@ -633,10 +629,6 @@ video {
 
 .w-8 {
   width: 2rem;
-}
-
-.w-\[10px\] {
-  width: 10px;
 }
 
 .flex-1 {
