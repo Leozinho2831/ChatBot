@@ -22,19 +22,52 @@ const sectionPlus = document.querySelector('.js-sectionPlus');
 const sectionLoad = document.querySelector('.js-sectionLoad');
 
 function toggleText(element){
-    console.log(element.previusElementSibling);
-    if(element.previusElementSibling === buttonPlus){
-        element.children[1].textContent = 'Menos';
-        element.children[0].style.transform = 'rotate(180deg)';
+    const containerItens = element.previousElementSibling;
+    const classRotate180 = 'rotate180'; 
+
+    if(containerItens === buttonPlus){
+        const textPlus = 'Mais';
+        const textLess = 'Menos';
+        
+        containerItens.children[0].classList.toggle(classRotate180);
+        console.log(containerItens.children[0]);
+
+        if(containerItens.children[1].textContent === textPlus){
+            containerItens.children[1].textContent = textLess;
+
+            buttonLoad.classList.remove('hidden');
+            buttonLoad.classList.add('flex');
+        } else {
+            containerItens.children[1].textContent = textPlus;
+
+            buttonLoad.classList.remove('flex');
+            buttonLoad.classList.add('hidden');
+        }
+
     } else {
-        element.children[0].textContent = 'Carregar menos';
+
+        const textPlus = 'Carregar Mais';
+        const textLess = 'Carregar Menos';
+
+        containerItens.children[0].classList.toggle(classRotate180);
+
+        if(containerItens.children[1].textContent === textPlus){
+            containerItens.children[1].textContent = textLess;
+        } else {
+            containerItens.children[1].textContent = textPlus;
+        }
+
     }
 }
 
 function openHistory(element){
-    console.log(element);
-    element.classList.remove('hidden');
-    element.classList.add('block');
+    if(element.classList.contains('hidden')){
+        element.classList.remove('hidden');
+        element.classList.add('block');
+    } else {
+        element.classList.remove('block');
+        element.classList.add('hidden');
+    }
 
     toggleText(element);
 }
