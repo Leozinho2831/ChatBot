@@ -1,20 +1,18 @@
 const menu = document.querySelector('.js-menu');
 const itensMenu = document.querySelector('.js-sectionMenu');
+const gridContainer = document.querySelector('.grid-container');
+
+const classOpenMenu = 'open-menu';
+const widthScreen = document.body.clientWidth;
+
+if(widthScreen > 640){
+    gridContainer.classList.add(classOpenMenu);
+} else {
+    gridContainer.classList.remove(classOpenMenu);
+}
 
 menu.onclick = () => {
-    const classGrid = 'grid-body';
-
-    if(itensMenu.classList.contains('hidden')){
-        itensMenu.classList.remove('hidden');
-        itensMenu.classList.add('grid');
-
-        document.body.classList.toggle(classGrid);
-    } else {
-        itensMenu.classList.remove('grid');
-        itensMenu.classList.add('hidden');
-
-        document.body.classList.toggle(classGrid);
-    }
+    gridContainer.classList.toggle(classOpenMenu);
 }
 
 const buttonPlus = document.querySelector('.js-buttonPlus');
