@@ -10,6 +10,24 @@
     .hoverBg:has(.hoverBg:hover){
         @apply bg-transparent;
     }
+
+    .js-rotate180{
+        transform: rotate(0);
+        transition: transform 0.3s ease;
+    }
+
+    .js-rotate90{
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+    }
+
+    .js-rotate180.rotate180{
+        transform: rotate(180deg)
+    }
+
+    .js-rotate90.rotate180{
+        transform: rotate(180deg);
+    }
       
     .scrollable::-webkit-scrollbar {
         @apply w-2 p-[1px];

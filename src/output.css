@@ -571,6 +571,24 @@ video {
   background-color: transparent;
 }
 
+.js-rotate180{
+  transform: rotate(0);
+  transition: transform 0.3s ease;
+}
+
+.js-rotate90{
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.js-rotate180.rotate180{
+  transform: rotate(180deg)
+}
+
+.js-rotate90.rotate180{
+  transform: rotate(180deg);
+}
+
 .scrollable::-webkit-scrollbar {
   width: 0.5rem;
   padding: 1px;
@@ -641,10 +659,6 @@ video {
   display: inline-flex;
 }
 
-.grid {
-  display: grid;
-}
-
 .hidden {
   display: none;
 }
@@ -700,15 +714,6 @@ video {
 
 .flex-1 {
   flex: 1 1 0%;
-}
-
-.rotate-90 {
-  --tw-rotate: 90deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -824,6 +829,16 @@ video {
   font-family: Inter, Arial, sans-serif;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -839,6 +854,11 @@ video {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(222 222 222 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-400 {
