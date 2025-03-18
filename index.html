@@ -25,7 +25,7 @@
                     </button>
                 </div>
                 <nav class="overflow-y-auto max-h-[300px] px-3 space-y-1 scrollable">
-                    <h2 class="px-3">Recentes</h2>
+                    <b class="px-3 font-semibold text-gray-200 text-lg">Recentes</b>
                     <div class="flex items-center gap-5 cursor-pointer hoverBg">
                         <!-- o tema da conversa -->
                         <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
@@ -33,7 +33,7 @@
                             <div></div>
                             <div class="!w-[10px]"></div>
                         </div>
-                        <p class="flex-1">Mensagem</p>
+                        <p class="flex-1 text-gray-400 text-base">Mensagem</p>
                         <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
                             <img src="src/images/options.svg" alt="options">
                         </figure>
@@ -45,15 +45,15 @@
                             <div></div>
                             <div class="!w-[10px]"></div>
                         </div>
-                        <p class="flex-1">Mensagem</p>
+                        <p class="flex-1 text-gray-400 text-base">Mensagem</p>
                         <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
                             <img src="src/images/options.svg" alt="options">
                         </figure>
                     </div>
                     <div class="flex items-center gap-5 cursor-pointer hoverBg js-buttonPlus">
-                        <img class="w-4 h-4" src="src/images/arrow-menu.svg" alt="Mais">
+                        <img class="w-4 h-4 js-rotate180" src="src/images/arrow-menu.svg" alt="Mais">
                         <!-- abrir mais histórico -->
-                        <p>Mais</p>
+                        <p class="text-gray-400 text-base">Mais</p>
                     </div>
                     <section class="hidden space-y-1 js-sectionPlus">
                     <!-- colocar block por js quando houver mais de 5 histórico -->
@@ -64,7 +64,7 @@
                                 <div></div>
                                 <div class="!w-[10px]"></div>
                             </div>
-                            <p class="flex-1">Mensagem</p>
+                            <p class="flex-1 text-gray-400 text-base">Mensagem</p>
                             <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
@@ -76,18 +76,17 @@
                                 <div></div>
                                 <div class="!w-[10px]"></div>
                             </div>
-                            <p class="flex-1">Mensagem</p>
+                            <p class="flex-1 text-gray-400 text-base">Mensagem</p>
                             <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
                         </div>
                     </section>
                     <!-- abrir histórico completo -->
-                    <div class="space-y-1 flex items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
-                        <img class="rotate-90 ml-[6px]" src="src/images/options.svg" alt="Carregar mais">
-                        <p class="capitalize">Carregar mais</p>
+                    <div class="space-y-1 hidden items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
+                        <img class="ml-[6px] js-rotate90" src="src/images/options.svg" alt="Carregar mais">
+                        <p class="capitalize text-gray-400 text-base">Carregar Mais</p>
                     </div>
-                    <!-- colocar block por js quando houver mais de 10 histórico para carregar tudo -->
                     <section class="hidden space-y-1 js-sectionLoad">
                         <div class="flex items-center gap-5 cursor-pointer hoverBg">
                             <!-- o tema da conversa -->
@@ -96,7 +95,7 @@
                                 <div></div>
                                 <div class="!w-[10px]"></div>
                             </div>
-                            <p class="flex-1">Mensagem</p>
+                            <p class="flex-1 text-gray-400 text-base">Mensagem</p>
                             <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
@@ -108,7 +107,7 @@
                                 <div></div>
                                 <div class="!w-[10px]"></div>
                             </div>
-                            <p class="flex-1">Mensagem</p>
+                            <p class="flex-1 text-gray-400 text-base">Mensagem</p>
                             <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
@@ -118,7 +117,7 @@
                 <div class="self-end px-3">
                     <figure class="flex items-center gap-4 cursor-pointer hoverBg">
                         <img class="w-4 h-4" src="src/images/history.svg" alt="Histórico">
-                        <p>Atividade</p>
+                        <p class="text-gray-400 text-base">Atividade</p>
                     </figure>
                 </div>
             </section>
