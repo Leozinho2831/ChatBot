@@ -3,11 +3,6 @@ module.exports = {
     content: ['src/javascript/*.js', '*.html'],
     theme: {
         extend: {
-            screens: {
-            'mobile': '480px',
-            'tablet': '768px',
-            'desktop': '1024px',
-            },
             fontFamily: {
                 inter: ['Inter', 'Arial' ,'sans-serif'],
             },
@@ -26,6 +21,16 @@ module.exports = {
                     950: '#1A1A1A',
                     'black': '#0E0E0E',
                 }
+            },
+            keyframes: {
+                'fadeIn': {
+                    '0%': { opacity: 0 },
+                    '65%': { opacity: 0 },
+                    '100%': { opacity: 1 },
+                }
+            },
+            animation: {
+                fadeIn: 'fadeIn 0.3s ease forwards',
             }
         },
     },

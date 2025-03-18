@@ -8,22 +8,32 @@
     }
 
     .hoverBg:has(.hoverBg:hover){
-        background-color: transparent;
+        @apply bg-transparent;
     }
       
     .scrollable::-webkit-scrollbar {
-        width: 8px;
-        padding: 1px;
+        @apply w-2 p-[1px];
     }
       
     .scrollable::-webkit-scrollbar-thumb {
-        background-color: theme(colors.gray.800);
-        border-radius: 10px;
-        padding: 1px;
+        @apply bg-gray-800 rounded-xl p-[1px];
     }
 
-    .grid-body{
+    .grid-container{
         display: grid;
-        grid-template-columns: minmax(250px, 1fr), auto;
+        grid-template-columns: 102px auto;
+        transition: grid-template-columns 0.3s ease;
+    }
+
+    .grid-container.open-menu{
+        grid-template-columns: 250px auto;
+    }
+
+    .js-sectionMenu {
+        @apply hidden opacity-0 animate-fadeIn;
+    }
+    
+    .grid-container.open-menu .js-sectionMenu {
+        @apply grid opacity-100;
     }
 }
