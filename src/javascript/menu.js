@@ -79,3 +79,28 @@ buttonPlus.onclick = () => {
 buttonLoad.onclick = () => {
     openHistory(sectionLoad);
 }
+
+const menuOptions = document.querySelector('.js-menuOptions');
+const buttonsOptions = document.querySelectorAll('.js-options');
+
+function openMenuOptions(event){
+    const itemEvent = event.currentTarget;
+    const distanceTop = itemEvent.offsetTop;
+    
+    menuOptions.style.cssText = `top: ${distanceTop}px`;
+    menuOptions.classList.remove('hidden');
+}
+
+buttonsOptions.forEach((buttonOptions) => {
+    buttonOptions.onclick = (event) => {
+        if(event.target.classList.contains('js-options')){
+            openMenuOptions(event);
+        }
+    }
+});
+
+document.body.onclick = (event) => {
+    if(!menuOptions.contains(event.target)){
+        menuOptions.classList.add('hidden');
+    }
+}
