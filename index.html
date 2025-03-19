@@ -26,7 +26,7 @@
                 </div>
                 <nav class="overflow-y-auto max-h-[300px] px-3 space-y-1 scrollable">
                     <b class="px-3 font-semibold text-gray-200 text-lg">Recentes</b>
-                    <div class="relative overflow-visible max-w-fit flex items-center gap-5 cursor-pointer hoverBg">
+                    <div class="flex items-center gap-5 cursor-pointer hoverBg">
                         <!-- o tema da conversa -->
                         <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
                             <div></div>
@@ -34,23 +34,9 @@
                             <div class="!w-[10px]"></div>
                         </div>
                         <p class="flex-1 text-gray-400 text-base">Mensagem</p>
-                        <figure class="relative inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                        <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                             <img src="src/images/options.svg" alt="options">
                         </figure>
-                        <div class="absolute top-0 right-0 translate-x-12 shadow-md -ml-10 bg-gray-900 rounded-xl text-gray-300 *:flex *:items-center *:gap-3 *:hoverBg *:!rounded-none *:cursor-pointer">
-                            <figure>
-                                <img class="w-5 h-5" src="src/images/fix.svg" alt="Fixar">
-                                <p class="text-sm">Fixar</p>
-                            </figure>
-                            <figure>
-                                <img class="w-5 h-5" src="src/images/rename.svg" alt="Renomear">
-                                <p class="text-sm">Renomear</p>
-                            </figure>
-                            <figure>
-                                <img class="w-5 h-5" src="src/images/delete.svg" alt="Excluir">
-                                <p class="text-sm">Excluir</p>
-                            </figure>
-                        </div>
                     </div>
                     <div class="flex items-center gap-5 cursor-pointer hoverBg">
                         <!-- o tema da conversa -->
@@ -60,7 +46,7 @@
                             <div class="!w-[10px]"></div>
                         </div>
                         <p class="flex-1 text-gray-400 text-base">Mensagem</p>
-                        <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                        <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                             <img src="src/images/options.svg" alt="options">
                         </figure>
                     </div>
@@ -78,7 +64,7 @@
                                 <div class="!w-[10px]"></div>
                             </div>
                             <p class="flex-1 text-gray-400 text-base">Mensagem</p>
-                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
                         </div>
@@ -90,7 +76,7 @@
                                 <div class="!w-[10px]"></div>
                             </div>
                             <p class="flex-1 text-gray-400 text-base">Mensagem</p>
-                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
                         </div>
@@ -109,7 +95,7 @@
                                 <div class="!w-[10px]"></div>
                             </div>
                             <p class="flex-1 text-gray-400 text-base">Mensagem</p>
-                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
                         </div>
@@ -121,11 +107,26 @@
                                 <div class="!w-[10px]"></div>
                             </div>
                             <p class="flex-1 text-gray-400 text-base">Mensagem</p>
-                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg">
+                            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                                 <img src="src/images/options.svg" alt="options">
                             </figure>
                         </div>
                     </section>
+                    <!-- top for javascript -->
+                    <div class="hidden absolute left-[235px] shadow-[0_2px_4px_rgba(0,0,0,0.3)] bg-gray-900 py-1 rounded-xl text-gray-300 *:flex *:w-full *:items-center *:gap-3 *:hoverBg *:!rounded-none *:cursor-pointer js-menuOptions">
+                        <button>
+                            <img class="w-5 h-5" src="src/images/fix.svg" alt="Fixar">
+                            <p class="text-sm">Fixar</p>
+                        </button>
+                        <button>
+                            <img class="w-5 h-5" src="src/images/rename.svg" alt="Renomear">
+                            <p class="text-sm">Renomear</p>
+                        </button>
+                        <button>
+                            <img class="w-5 h-5" src="src/images/delete.svg" alt="Excluir">
+                            <p class="text-sm">Excluir</p>
+                        </button>
+                    </div>
                 </nav>
                 <div class="self-end px-3">
                     <figure class="flex items-center gap-4 cursor-pointer hoverBg">
