@@ -30,7 +30,6 @@ function toggleText(element){
         const textLess = 'Menos';
         
         containerItens.children[0].classList.toggle(classRotate180);
-        console.log(containerItens.children[0]);
 
         if(containerItens.children[1].textContent === textPlus){
             containerItens.children[1].textContent = textLess;
@@ -82,25 +81,31 @@ buttonLoad.onclick = () => {
 
 const menuOptions = document.querySelector('.js-menuOptions');
 const buttonsOptions = document.querySelectorAll('.js-options');
+const nav = document.querySelector('.js-nav');
+
+document.onclick = (event) => {
+    const verify = !menuOptions.contains(event.target) && !event.target.closest('.js-options');
+
+    if(verify){
+        menuOptions.classList.add('hidden');
+    }
+}
 
 function openMenuOptions(event){
     const itemEvent = event.currentTarget;
     const distanceTop = itemEvent.offsetTop;
     
     menuOptions.style.cssText = `top: ${distanceTop}px`;
-    menuOptions.classList.remove('hidden');
+
+    if(!menuOptions.classList.contains('hidden')){
+        menuOptions.classList.add('hidden');
+    } else {
+        menuOptions.classList.remove('hidden');
+    }
 }
 
 buttonsOptions.forEach((buttonOptions) => {
     buttonOptions.onclick = (event) => {
-        if(event.target.classList.contains('js-options')){
-            openMenuOptions(event);
-        }
+        openMenuOptions(event);
     }
 });
-
-document.body.onclick = (event) => {
-    if(!menuOptions.contains(event.target)){
-        menuOptions.classList.add('hidden');
-    }
-}
