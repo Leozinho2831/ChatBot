@@ -17,7 +17,7 @@
                     <img src="src/images/menu.svg" alt="menu">
                 </figure>
             </div>
-            <section class="grid-rows-[auto_auto_1fr] gap-8 mt-8 js-sectionMenu">
+            <section class="grid grid-rows-[auto_400px_1fr] gap-8 mt-8 js-sectionMenu">
                 <div class="px-6">
                     <button class="uppercase font-semibold text-sm text-gray-400 flex items-center gap-4 px-4 py-3 bg-gray-950/60 rounded-full hover:bg-gray-950">
                         <img class="w-4 h-4" src="src/images/plus.svg" alt="Sinal de mais">
@@ -27,36 +27,38 @@
                 <nav class="overflow-y-auto max-h-[400px] px-3 space-y-1 scrollable js-nav">
                     
                 </nav>
-                <div class="self-end px-3">
+                <div class="content-end px-3">
                     <figure class="flex items-center gap-4 cursor-pointer hoverBg">
-                        <img class="w-4 h-4" src="src/images/history.svg" alt="Histórico">
+                        <img class="w-5 h-5" src="src/images/history.svg" alt="Histórico">
                         <p class="text-gray-400 text-base">Atividade</p>
                     </figure>
                 </div>
             </section>
         </header>
-        <main class="grid grid-rows-2 min-h-screen bg-gray-950 py-10 px-16">
+        <main class="grid grid-rows-2 grid-cols-1 min-h-screen bg-gray-950 py-10 px-16">
             <!-- criar efeito de digitação com js -->
             <div class="self-end">
                 <!-- trocar texto pela conversa com js -->
-                <h1 class="self-end text-center uppercase font-bold tracking-widest text-gray-200 text-3xl">Pergunte qualquer coisa!</h1>
+                <h1 class="self-end text-center uppercase font-bold tracking-widest text-gray-200 text-4xl">Pergunte qualquer coisa!</h1>
             </div>
-            <div class="self-end relative w-fit">
+            <div class="self-end relative">
                 <form>
-                    <input 
-                        type="text" 
-                        id="chat" 
-                        placeholder="Peça ao chatBot" 
-                        class="bg-transparent border border-gray-600 rounded-md bg-gray-black/60 hover:bg-gray-black js-input"
-                    >
-                    <!-- se houver texto adicionar hidden -->
-                    <button class="absolute top-0 right-0 js-buttonMic">
-                        <img class="w-5 h-5" src="src/images/microphone.svg" alt="Usar o microfone">
-                    </button>
-                    <!-- se houver texto remover hidden -->
-                    <button type="button" class="hidden absolute top-0 right-0 js-buttonSend">
-                        <img class="w-5 h-5" src="src/images/arrow.svg" alt="Confirmar">
-                    </button>
+                    <label for="chat" class="block border-2 border-gray-800 bg-gray-black/60 rounded-xl py-5 pl-5 pr-11 shadow-[0_2px_3px_rgba(0,0,0,0.2)] hover:bg-gray-black hover:border-gray-700 focus:outline-none focus:bg-gray-black focus:border-gray-600">
+                        <input 
+                            type="text"
+                            id="chat" 
+                            placeholder="Peça ao chatBot" 
+                            class="w-[90%] bg-transparent text-lg text-gray-500 font-semibold placeholder:font-semibold focus:outline-none placeholder:text-gray-600 js-input"
+                        >
+                        <!-- se houver texto adicionar hidden -->
+                        <button class="absolute top-4 right-5 bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonMic">
+                            <img class="w-5 h-5" src="src/images/microphone.svg" alt="Usar o microfone">
+                        </button>
+                        <!-- se houver texto remover hidden -->
+                        <button type="button" class="hidden absolute top-4 right-5 bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonSend">
+                            <img class="w-5 h-5" src="src/images/arrow.svg" alt="Confirmar">
+                        </button>
+                    </label>
                 </form>
             </div>
         </main>
