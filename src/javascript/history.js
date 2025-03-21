@@ -66,12 +66,15 @@ if(sectionLoad){
     }
 }
 
+const nav = document.querySelector('.js-nav');
+
 // trocar texto por criação do gimini
 const message = `message`;
 
 // top for javascript
 const menuOptionsString = 
 `
+    <b class="px-3 font-semibold text-gray-200 text-lg">Recentes</b>
     <div class="hidden absolute left-[235px] shadow-[0_2px_4px_rgba(0,0,0,0.3)] bg-gray-900 py-1 rounded-xl text-gray-300 *:flex *:w-full *:items-center *:gap-3 *:hoverBg *:!rounded-none *:cursor-pointer js-menuOptions">
         <button>
             <img class="w-5 h-5" src="src/images/fix.svg" alt="Fixar">
