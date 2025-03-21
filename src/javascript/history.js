@@ -54,13 +54,13 @@ function openHistory(element){
     toggleText(element);
 }
 
-if(sectionPlus){
+if(sectionPlus && buttonPlus){
     buttonPlus.onclick = () => {
         openHistory(sectionPlus);
     }
 }
 
-if(sectionLoad){
+if(sectionLoad && buttonLoad){
     buttonLoad.onclick = () => {
         openHistory(sectionLoad);
     }
@@ -68,84 +68,101 @@ if(sectionLoad){
 
 const nav = document.querySelector('.js-nav');
 
-// trocar texto por criação do gimini
-const message = `message`;
+const input = document.querySelector('.js-input');
+const buttonMic = document.querySelector('.js-buttonMic');
+const buttonSend = document.querySelector('.js-buttonSend');
+
+function createMessage(){
+    const navChild = nav.querySelectorAll('.js-message').length;
+    // trocar texto por criação do gimini
+    const message = `message`;
+
+    if(navChild == 0){
+        nav.innerHTML += firstMessage(message);
+    }
+
+    if(navChild){
+
+    }
+
+    if(navChild){
+
+    }
+
+    nav.innerHTML += '';
+}
+
+input.oninput = () => {
+    if(input.value){
+        buttonMic.classList.add('hidden');
+        buttonSend.classList.remove('hidden');
+    } else {
+        buttonSend.classList.add('hidden');
+        buttonMic.classList.remove('hidden');
+    }
+
+    createMessage();
+}
+
+
+const historyItem = (message) => {
+    return  `<div class="flex items-center gap-5 cursor-pointer hoverBg js-message">
+                <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
+                    <div></div>
+                    <div></div>
+                    <div class="!w-[10px]"></div>
+                </div>
+                <p class="flex-1 text-gray-400 text-base">${message}</p>
+                <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
+                    <img src="src/images/options.svg" alt="options">
+                </figure>
+            </div>
+            `;
+}
+
 
 // top for javascript
-const menuOptionsString = 
-`
-    <b class="px-3 font-semibold text-gray-200 text-lg">Recentes</b>
-    <div class="hidden absolute left-[235px] shadow-[0_2px_4px_rgba(0,0,0,0.3)] bg-gray-900 py-1 rounded-xl text-gray-300 *:flex *:w-full *:items-center *:gap-3 *:hoverBg *:!rounded-none *:cursor-pointer js-menuOptions">
-        <button>
-            <img class="w-5 h-5" src="src/images/fix.svg" alt="Fixar">
-            <p class="text-sm">Fixar</p>
-        </button>
-        <button>
-            <img class="w-5 h-5" src="src/images/rename.svg" alt="Renomear">
-            <p class="text-sm">Renomear</p>
-        </button>
-        <button>
-            <img class="w-5 h-5" src="src/images/delete.svg" alt="Excluir">
-            <p class="text-sm">Excluir</p>
-        </button>
-    </div>
-`;
-
-const historyItem = 
-`
-    <div class="flex items-center gap-5 cursor-pointer hoverBg">
-        <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
-            <div></div>
-            <div></div>
-            <div class="!w-[10px]"></div>
-        </div>
-        <p class="flex-1 text-gray-400 text-base">${message}</p>
-        <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
-            <img src="src/images/options.svg" alt="options">
-        </figure>
-    </div>
-`;
+const firstMessage = (message) => {
+    return  `<b class="px-3 font-semibold text-gray-200 text-lg">Recentes</b>
+            ${historyItem(message)}
+            <div class="hidden absolute left-[235px] shadow-[0_2px_4px_rgba(0,0,0,0.3)] bg-gray-900 py-1 rounded-xl text-gray-300 *:flex *:w-full *:items-center *:gap-3 *:hoverBg *:!rounded-none *:cursor-pointer js-menuOptions">
+                <button>
+                    <img class="w-5 h-5" src="src/images/fix.svg" alt="Fixar">
+                    <p class="text-sm">Fixar</p>
+                </button>
+                <button>
+                    <img class="w-5 h-5" src="src/images/rename.svg" alt="Renomear">
+                    <p class="text-sm">Renomear</p>
+                </button>
+                <button>
+                    <img class="w-5 h-5" src="src/images/delete.svg" alt="Excluir">
+                    <p class="text-sm">Excluir</p>
+                </button>
+            </div>
+            `;
+}
 
 // colocar block por js quando houver mais de 5 histórico
-const historyItemPlus = 
-`
-    <div class="flex items-center gap-5 cursor-pointer hoverBg js-buttonPlus">
-        <img class="w-4 h-4 js-rotate180" src="src/images/arrow-menu.svg" alt="Mais">
-        <p class="text-gray-400 text-base">Mais</p>
-    </div>
-    <section class="hidden space-y-1 js-sectionPlus">
-        <div class="flex items-center gap-5 cursor-pointer hoverBg">
-            <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
-                <div></div>
-                <div></div>
-                <div class="!w-[10px]"></div>
+const historyItemPlus = () => {
+    return  `<div class="flex items-center gap-5 cursor-pointer hoverBg js-buttonPlus">
+                <img class="w-4 h-4 js-rotate180" src="src/images/arrow-menu.svg" alt="Mais">
+                <p class="text-gray-400 text-base">Mais</p>
             </div>
-            <p class="flex-1 text-gray-400 text-base">${message}</p>
-            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
-                <img src="src/images/options.svg" alt="options">
-            </figure>
-        </div>
-    </section>
-`;
+            <section class="hidden space-y-1 js-sectionPlus">
+                ${historyItem(message)}
+            </section>
+            `;
+}
 
 // abrir histórico completo
-const historyItemLoad = 
-`
-    <div class="space-y-1 hidden items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
-        <img class="ml-[6px] js-rotate90" src="src/images/options.svg" alt="Carregar mais">
-        <p class="capitalize text-gray-400 text-base">Carregar Mais</p>
-    </div>
-    <section class="hidden space-y-1 js-sectionLoad">
-        <div class="flex items-center gap-5 cursor-pointer hoverBg">
-            <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
-                <div></div>
-                <div></div>
-                <div class="!w-[10px]"></div>
+const historyItemLoad = (message) => {
+    return  `
+            <div class="space-y-1 hidden items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
+                <img class="ml-[6px] js-rotate90" src="src/images/options.svg" alt="Carregar mais">
+                <p class="capitalize text-gray-400 text-base">Carregar Mais</p>
             </div>
-            <p class="flex-1 text-gray-400 text-base">${message}</p>
-            <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
-                <img src="src/images/options.svg" alt="options">
-            </figure>
-        </div>
-    </section>
-`;
+            <section class="hidden space-y-1 js-sectionLoad">
+                ${historyItem(message)}
+            </section>
+            `;
+}
