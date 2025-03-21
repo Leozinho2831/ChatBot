@@ -69,6 +69,25 @@ if(sectionLoad){
 // trocar texto por criação do gimini
 const message = `message`;
 
+// top for javascript
+const menuOptionsString = 
+`
+    <div class="hidden absolute left-[235px] shadow-[0_2px_4px_rgba(0,0,0,0.3)] bg-gray-900 py-1 rounded-xl text-gray-300 *:flex *:w-full *:items-center *:gap-3 *:hoverBg *:!rounded-none *:cursor-pointer js-menuOptions">
+        <button>
+            <img class="w-5 h-5" src="src/images/fix.svg" alt="Fixar">
+            <p class="text-sm">Fixar</p>
+        </button>
+        <button>
+            <img class="w-5 h-5" src="src/images/rename.svg" alt="Renomear">
+            <p class="text-sm">Renomear</p>
+        </button>
+        <button>
+            <img class="w-5 h-5" src="src/images/delete.svg" alt="Excluir">
+            <p class="text-sm">Excluir</p>
+        </button>
+    </div>
+`;
+
 const historyItem = 
 `
     <div class="flex items-center gap-5 cursor-pointer hoverBg">
