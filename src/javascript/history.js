@@ -67,6 +67,7 @@ if(sectionLoad && buttonLoad){
 }
 
 const nav = document.querySelector('.js-nav');
+const form = document.querySelector('.js-form');
 
 const input = document.querySelector('.js-input');
 const buttonMic = document.querySelector('.js-buttonMic');
@@ -100,7 +101,10 @@ input.oninput = () => {
         buttonSend.classList.add('hidden');
         buttonMic.classList.remove('hidden');
     }
+}
 
+form.onsubmit = (event) => {
+    event.preventDefault();
     createMessage();
 }
 
