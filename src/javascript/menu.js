@@ -10,17 +10,18 @@ if(widthScreen > 640){
     gridContainer.classList.add(classOpenMenu);
 } else {
     gridContainer.classList.remove(classOpenMenu);
+    
+    sectionMenu.classList.remove('grid');
+    sectionMenu.classList.add('hidden');
 }
 
 menu.onclick = () => {
-    if(!gridContainer.classList.contains(classOpenMenu)){
-        gridContainer.classList.add(classOpenMenu);
+    gridContainer.classList.toggle(classOpenMenu);
 
+    if(gridContainer.classList.contains(classOpenMenu)){
         sectionMenu.classList.add('grid');
         sectionMenu.classList.remove('hidden');
     } else {
-        gridContainer.classList.remove(classOpenMenu);
-
         sectionMenu.classList.remove('grid');
         sectionMenu.classList.add('hidden');
     }
