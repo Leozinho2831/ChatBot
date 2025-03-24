@@ -601,6 +601,15 @@ video {
   padding: 1px;
 }
 
+.menuMobile{
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+}
+
+.grid-container.open-menu .menuMobile{
+  transform: translateX(0);
+}
+
 .grid-container{
   display: grid;
   grid-template-columns: 102px auto;
@@ -1034,6 +1043,17 @@ video {
 
 .\*\:hoverBg > *:has(.\*\:hoverBg > *:hover) {
   background-color: transparent;
+}
+
+@media not all and (min-width: 640px) {
+  .max-sm\:menuMobile{
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+  }
+
+  .grid-container.open-menu .max-sm\:menuMobile{
+    transform: translateX(0);
+  }
 }
 
 .\*\:flex > * {
