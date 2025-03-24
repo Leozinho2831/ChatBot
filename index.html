@@ -10,14 +10,14 @@
     <title>ChatBot</title>
 </head>
 <body class="font-inter min-h-screen">
-    <div class="grid-container">
-        <header class="min-w-fit p-[3px] py-6 bg-gray-900">
-            <div class="px-6 space-y-5">
-                <figure class="inline-flex items-center justify-center w-12 h-12 !p-0 cursor-pointer hoverBg js-menu">
-                    <img src="src/images/menu.svg" alt="menu">
-                </figure>
-            </div>
-            <section class="grid grid-rows-[auto_400px_1fr] gap-8 mt-8 js-sectionMenu">
+    <div class="absolute top-6 z-20 left-1 px-6 space-y-5">
+        <figure class="inline-flex items-center justify-center w-12 h-12 !p-0 cursor-pointer hoverBg js-menu">
+            <img src="src/images/menu.svg" alt="menu">
+        </figure>
+    </div>
+    <div class="grid-container max-sm:!grid-cols-1">
+        <header class="min-w-fit h-screen p-[3px] py-6 bg-gray-900 max-sm:w-[70%] max-sm:absolute max-sm:z-10 js-containerMenu">
+            <section class="grid grid-rows-[auto_400px_1fr] h-[calc(100%-90px)] gap-8 mt-24 js-sectionMenu">
                 <div class="px-6">
                     <button class="uppercase font-semibold text-sm text-gray-400 flex items-center gap-4 px-4 py-3 bg-gray-950/60 rounded-full hover:bg-gray-950">
                         <img class="w-4 h-4" src="src/images/plus.svg" alt="Sinal de mais">
@@ -27,7 +27,7 @@
                 <nav class="overflow-y-auto max-h-[400px] px-3 space-y-1 scrollable js-nav">
                     
                 </nav>
-                <div class="content-end px-3">
+                <div class="self-end px-3">
                     <figure class="flex items-center gap-4 cursor-pointer hoverBg">
                         <img class="w-5 h-5" src="src/images/history.svg" alt="Histórico">
                         <p class="text-gray-400 text-base">Atividade</p>
@@ -42,7 +42,7 @@
                 <h1 class="self-end text-center uppercase font-bold tracking-widest text-gray-200 text-4xl">Pergunte qualquer coisa!</h1>
             </div>
             <div class="self-end relative">
-                <form>
+                <form class="js-form">
                     <label for="chat" class="block border-2 border-gray-800 bg-gray-black/60 rounded-xl py-5 pl-5 pr-11 shadow-[0_2px_3px_rgba(0,0,0,0.2)] hover:bg-gray-black hover:border-gray-700 focus:outline-none focus:bg-gray-black focus:border-gray-600">
                         <input 
                             type="text"
