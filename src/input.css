@@ -37,6 +37,15 @@
         @apply bg-gray-800 rounded-xl p-[1px];
     }
 
+    .menuMobile{
+        transform: translateX(-100%);
+        transition: all 0.3s ease;
+    }
+
+    .grid-container.open-menu .menuMobile{
+        transform: translateX(0);
+    }
+
     .grid-container{
         display: grid;
         grid-template-columns: 102px auto;
