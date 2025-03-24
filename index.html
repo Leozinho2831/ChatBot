@@ -41,9 +41,9 @@
                 <!-- trocar texto pela conversa com js -->
                 <h1 class="self-end text-center uppercase font-bold tracking-widest text-gray-200 text-4xl max-sm:3xl">Pergunte qualquer coisa!</h1>
             </div>
-            <div class="self-end relative">
+            <div class="self-end">
                 <form class="js-form">
-                    <label for="chat" class="block border-2 border-gray-800 bg-gray-black/60 rounded-xl py-5 pl-5 pr-11 shadow-[0_2px_3px_rgba(0,0,0,0.2)] hover:bg-gray-black hover:border-gray-700 focus:outline-none focus:bg-gray-black focus:border-gray-600">
+                    <label for="chat" class="flex gap-3 justify-between items-center border-2 border-gray-800 bg-gray-black/60 rounded-xl py-5 px-5 shadow-[0_2px_3px_rgba(0,0,0,0.2)] hover:bg-gray-black hover:border-gray-700 focus:outline-none focus:bg-gray-black focus:border-gray-600">
                         <input 
                             type="text"
                             id="chat" 
@@ -51,11 +51,11 @@
                             class="w-[90%] bg-transparent text-lg text-gray-500 font-semibold placeholder:font-semibold focus:outline-none placeholder:text-gray-600 js-input"
                         >
                         <!-- se houver texto adicionar hidden -->
-                        <button type="button" class="absolute top-4 right-5 bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonMic">
+                        <button type="button" class="bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonMic">
                             <img class="w-5 h-5" src="src/images/microphone.svg" alt="Usar o microfone">
                         </button>
                         <!-- se houver texto remover hidden -->
-                        <button type="submit" class="hidden absolute top-4 right-5 bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonSend">
+                        <button type="submit" class="hidden bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonSend">
                             <img class="w-5 h-5" src="src/images/arrow.svg" alt="Confirmar">
                         </button>
                     </label>
