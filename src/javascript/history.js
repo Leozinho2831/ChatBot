@@ -90,7 +90,7 @@ function createMessage(){
 
     }
 
-    nav.innerHTML += '';
+    // nav.innerHTML += '';
 }
 
 input.oninput = () => {
