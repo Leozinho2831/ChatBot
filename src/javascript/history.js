@@ -22,16 +22,18 @@ function openMoreHistory(){
             
             containerItens.children[0].classList.toggle(classRotate180);
 
-            if(containerItens.children[1].textContent === textPlus){
-                containerItens.children[1].textContent = textLess;
-
-                buttonLoad.classList.remove('hidden');
-                buttonLoad.classList.add('flex');
-            } else {
-                containerItens.children[1].textContent = textPlus;
-
-                buttonLoad.classList.remove('flex');
-                buttonLoad.classList.add('hidden');
+            if(buttonLoad){
+                if(containerItens.children[1].textContent === textPlus){
+                    containerItens.children[1].textContent = textLess;
+    
+                    buttonLoad.classList.remove('hidden');
+                    buttonLoad.classList.add('flex');
+                } else {
+                    containerItens.children[1].textContent = textPlus;
+    
+                    buttonLoad.classList.remove('flex');
+                    buttonLoad.classList.add('hidden');
+                }
             }
 
         } else {
@@ -112,7 +114,7 @@ const historyItemPlus = (message) => {
 // criar botão abrir histórico completo
 const historyItemLoad = (message) => {
     return  `
-            <div class="space-y-1 hidden items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
+            <div class="space-y-1 flex items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
                 <img class="ml-[6px] js-rotate90" src="src/images/options.svg" alt="Carregar mais">
                 <p class="capitalize text-gray-400 text-base">Carregar Mais</p>
             </div>
