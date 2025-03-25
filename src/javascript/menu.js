@@ -15,7 +15,10 @@ if(widthScreen > 640){
     sectionMenu.classList.add('hidden');
 }
 
-menu.onclick = () => {
+menu.onclick = (event) => {
+    // evita que o evento de click no menu dispare o evento de click no documento
+    event.stopPropagation();
+
     gridContainer.classList.toggle(classOpenMenu);
 
     if(gridContainer.classList.contains(classOpenMenu)){
@@ -27,37 +30,18 @@ menu.onclick = () => {
     }
 }
 
-// menu options. Tudo dentro do document.onclick para quando criar os itens selecionar o item e salva na memória
+// menu close mobile
 document.onclick = (event) => {
-    const menuOptions = document.querySelector('.js-menuOptions');
-    const buttonsOptions = document.querySelectorAll('.js-options');
-    console.log(menuOptions, buttonsOptions);
+    if(widthScreen < 640){
+        const menuNav = document.querySelector('.js-containerMenu');
 
-    function openMenuOptions(event){
-        const itemEvent = event.currentTarget;
-        const distanceTop = itemEvent.offsetTop;
+        const verifyMenuMobile = !menuNav.contains(event.target) && !menu.contains(event.target);
         
-        menuOptions.style.cssText = `top: ${distanceTop}px`;
-    
-        if(!menuOptions.classList.contains('hidden')){
-            menuOptions.classList.add('hidden');
-        } else {
-            menuOptions.classList.remove('hidden');
-        }
-    }
-    
-    buttonsOptions.forEach((buttonOptions) => {
-        buttonOptions.onclick = (event) => {
-            console.log(1);
-            openMenuOptions(event);
-        }
-    });     
+        if(verifyMenuMobile){
+            gridContainer.classList.remove(classOpenMenu);
 
-    if(menuOptions){
-        const verify = menuOptions && !menuOptions.contains(event.target) && !event.target.closest('.js-options');
-
-        if(verify){
-            menuOptions.classList.add('hidden');
+            sectionMenu.classList.remove('grid');
+            sectionMenu.classList.add('hidden');
         }
     }
 }
