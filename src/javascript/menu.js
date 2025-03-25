@@ -31,7 +31,7 @@ menu.onclick = (event) => {
 }
 
 // menu close mobile
-document.onclick = (event) => {
+document.body.onclick = (event) => {
     if(widthScreen < 640){
         const menuNav = document.querySelector('.js-containerMenu');
 
