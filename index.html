@@ -16,6 +16,7 @@
         </figure>
     </div>
     <div class="hidden absolute z-20 inset-0 bg-black/50 js-bgBlack"></div>
+    <!-- menu options -->
     <div class="hidden absolute z-40 left-[235px] shadow-[0_2px_4px_rgba(0,0,0,0.3)] bg-gray-900 py-1 rounded-xl text-gray-300 *:flex *:w-full *:items-center *:gap-3 *:hoverBg *:!rounded-none *:cursor-pointer max-sm:bottom-0 max-sm:inset-x-0 max-sm:w-screen js-menuOptions">
         <button>
             <img class="w-5 h-5" src="src/images/fix.svg" alt="Fixar">
@@ -32,14 +33,14 @@
     </div>
     <div class="grid-container max-sm:!grid-cols-1">
         <header class="min-w-fit h-screen p-[3px] py-6 bg-gray-900 max-sm:w-[70%] max-sm:absolute max-sm:z-10 max-sm:menuMobile js-containerMenu">
-            <section class="grid grid-rows-[auto_350px_1fr] h-[calc(100%-90px)] gap-8 mt-24 js-sectionMenu">
+            <section class="grid grid-rows-[auto_minmax(200px,350px)_1fr] h-[calc(100%-90px)] gap-8 mt-24 js-sectionMenu">
                 <div class="px-6">
                     <button class="uppercase font-semibold text-sm text-gray-400 flex items-center gap-4 px-4 py-3 bg-gray-950/60 rounded-full hover:bg-gray-950">
                         <img class="w-4 h-4" src="src/images/plus.svg" alt="Sinal de mais">
                         <p>Nova conversa</p>
                     </button>
                 </div>
-                <nav class="overflow-y-auto max-h-[400px] px-3 space-y-1 scrollable js-nav">
+                <nav class="overflow-y-auto max-h-[350px] px-3 space-y-1 scrollable js-nav">
                     
                 </nav>
                 <div class="self-end px-3">
@@ -50,7 +51,7 @@
                 </div>
             </section>
         </header>
-        <main class="grid grid-rows-2 grid-cols-1 min-h-screen bg-gray-950 py-10 px-16 max-sm:py-8 max-sm:px-12">
+        <main class="grid grid-rows-2 grid-cols-1 h-screen bg-gray-950 py-10 px-16 max-sm:py-8 max-sm:px-12">
             <!-- criar efeito de digitação com js -->
             <div class="self-end">
                 <!-- trocar texto pela conversa com js -->
