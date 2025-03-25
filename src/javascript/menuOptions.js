@@ -1,4 +1,4 @@
-document.onclick = (event) => {
+document.onclick = (event) => {    
     const menuOptions = document.querySelector('.js-menuOptions');
     const bgBlack = document.querySelector('.js-bgBlack');
     // usado para pegar o botão de clique e não precisar criar um evento de clique para ele, assim não precisando clicar duas vezes no botão
