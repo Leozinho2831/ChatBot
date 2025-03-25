@@ -719,6 +719,10 @@ video {
   height: 1.75rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .max-h-\[400px\] {
   max-height: 400px;
 }
@@ -876,6 +880,10 @@ video {
 
 .self-end {
   align-self: flex-end;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overflow-y-auto {
