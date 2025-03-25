@@ -85,9 +85,27 @@
                 </form>
             </div>
         </main>
+        <div class="absolute inset-0 z-40 bg-gray-900 p-5 js-alertAudio">
+            <div class="relative flex items-center justify-center h-full">
+                <figure class="absolute top-5 right-5 cursor-pointer js-closeAlert">
+                    <img class="w-12 h-12" src="src/images/close.svg" alt="Fechar">
+                </figure>
+                <div class="flex items-center gap-12">
+                    <h1 class="flex-1 font-bold tracking-widest text-gray-200 text-3xl max-sm:text-xl">
+                        A pesquisa por voz foi desativada. 
+                        <br>
+                        Permita o uso do microfone.
+                    </h1>
+                    <figure class="min-w-fit bg-gray-400 p-10 rounded-full max-sm:p-6">
+                        <img class="min-w-[100px] min-h-[100px] max-sm:min-w-[60px] max-sm:min-h-[60px]" src="src/images/microphone.svg" alt="Microfone">
+                    </figure>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="src/javascript/history.js"></script>
     <script src="src/javascript/menu.js"></script>
     <script src="src/javascript/menuOptions.js"></script>
+    <script src="src/javascript/microphone.js"></script>
 </body>
 </html>
