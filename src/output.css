@@ -659,6 +659,22 @@ video {
   top: 1.5rem;
 }
 
+.left-\[230px\] {
+  left: 230px;
+}
+
+.left-\[23px\] {
+  left: 23px;
+}
+
+.left-\[220px\] {
+  left: 220px;
+}
+
+.left-\[225px\] {
+  left: 225px;
+}
+
 .z-20 {
   z-index: 20;
 }
@@ -822,6 +838,10 @@ video {
 
 .grid-rows-\[auto_400px_1fr\] {
   grid-template-rows: auto 400px 1fr;
+}
+
+.grid-rows-\[auto_350px_1fr\] {
+  grid-template-rows: auto 350px 1fr;
 }
 
 .flex-wrap {
