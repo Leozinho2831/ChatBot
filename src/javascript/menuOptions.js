@@ -1,7 +1,7 @@
 document.onclick = (event) => {
     const menuOptions = document.querySelector('.js-menuOptions');
-    const buttonsOptions = document.querySelectorAll('.js-options');
-    console.log(menuOptions, buttonsOptions);
+    // usado para pegar o botão de clique e não precisar criar um evento de clique para ele, assim não precisando clicar duas vezes no botão
+    const buttonOption = event.target.closest('.js-options');
 
     function openMenuOptions(event){
         const itemEvent = event.currentTarget;
@@ -15,13 +15,10 @@ document.onclick = (event) => {
             menuOptions.classList.remove('hidden');
         }
     }
-    
-    buttonsOptions.forEach((buttonOptions) => {
-        buttonOptions.onclick = (event) => {
-            console.log(1);
-            openMenuOptions(event);
-        }
-    }); 
+
+    if(buttonOption){
+        openMenuOptions(event);
+    }
 
     const verify = menuOptions && !menuOptions.contains(event.target) && !event.target.closest('.js-options');
 
