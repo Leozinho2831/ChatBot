@@ -28,6 +28,11 @@
     .js-rotate90.rotate180{
         transform: rotate(180deg);
     }
+
+    .scrollable {
+        scrollbar-width: thin;
+        scrollbar-color: theme(colors.gray.800) transparent;
+    }
       
     .scrollable::-webkit-scrollbar {
         @apply w-2 p-[1px];
@@ -35,6 +40,10 @@
       
     .scrollable::-webkit-scrollbar-thumb {
         @apply bg-gray-800 rounded-xl p-[1px];
+    }
+
+    .scrollable::-webkit-scrollbar-track {
+        background-color: transparent;
     }
 
     .menuMobile{
