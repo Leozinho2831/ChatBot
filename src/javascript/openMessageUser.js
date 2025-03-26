@@ -1,0 +1,1 @@
+const openMessage = document.querySelector('.js-openMessageUser');
