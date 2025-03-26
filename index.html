@@ -58,13 +58,26 @@
             <h1 class="px-3 font-semibold text-gray-200 text-2xl">Você tem certeza que deseja apagar seu histórico?</h1>
             <button class="uppercase font-semibold text-base text-gray-400 bg-gray-950/60 px-6 py-3 rounded-full hover:bg-gray-950 hover:text-red-600/90 js-deleteHistory">Apagar</button>
         </div>
-        <main class="grid grid-rows-2 grid-cols-1 h-screen bg-gray-950 py-10 px-16 max-sm:py-8 max-sm:px-12">
+        <main class="grid grid-rows-[1fr,100px] grid-cols-1 gap-12 h-screen bg-gray-950 py-8 px-10 max-sm:py-6 max-sm:px-8">
             <!-- criar efeito de digitação com js -->
-            <div class="self-end">
+            <section class="center flex flex-col gap-8 self-end py-4 px-5 max-h-[340px] overflow-y-auto scrollable">
                 <!-- trocar texto pela conversa com js -->
-                <h1 class="self-end text-center uppercase font-bold tracking-widest text-gray-200 text-4xl max-sm:3xl">Pergunte qualquer coisa!</h1>
-            </div>
-            <div class="self-end">
+                <!-- <h1 class="self-end text-center uppercase font-bold tracking-widest text-gray-200 text-4xl max-sm:3xl">Pergunte qualquer coisa!</h1> -->
+                <!-- conversa ia e usuário -->
+                <div class="self-end flex items-center gap-3 max-w-[500px] bg-gray-800 text-gray-300 rounded-2xl rounded-tr-none py-4 px-6 shadow-[0_2px_3px_rgba(0,0,0,0.2)]">
+                    <p class="truncate js-responseUser">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aspernatur veniam saepe nam modi consectetur minus impedit repudiandae fugiat deleniti, delectus quidem ad natus nesciunt et! Sint sunt minima laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aspernatur veniam saepe nam modi consectetur minus impedit repudiandae fugiat deleniti, delectus quidem ad natus nesciunt et! Sint sunt minima laborum.</p>
+                    <button class="min-w-fit cursor-pointer p-2 rounded-full hover:bg-gray-700/70 js-textFull">
+                        <img class="w-5 h-5" src="src/images/arrow-menu.svg" alt="Ver mais">
+                    </button>
+                </div>
+                <div class="text-gray-300 flex flex-col gap-4">
+                    <button class="self-end bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500">
+                        <img class="w-5 h-5" src="src/images/copy.svg" alt="Copiar">
+                    </button>
+                    <p class="flex-1 js-responseIa">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium voluptatibus dolores exercitationem quasi quia, veritatis sint itaque minus est, unde tempore facere? Odio iure fugiat numquam tempore enim nesciunt deleniti?</p>
+                </div>
+            </section>
+            <div class="self-end justify-self-center w-full max-w-[900px]">
                 <form class="js-form">
                     <label for="chat" class="min-w-52 flex flex-wrap gap-3 justify-between items-center border-2 border-gray-800 bg-gray-black/60 rounded-2xl py-4 px-5 shadow-[0_2px_3px_rgba(0,0,0,0.2)] hover:bg-gray-black hover:border-gray-700 focus:outline-none focus:bg-gray-black focus:border-gray-600">
                         <input 
