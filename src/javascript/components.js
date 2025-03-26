@@ -22,10 +22,10 @@ export const firstMessage = (message) => {
 
 // criar botão abrir mais histórico
 export const historyItemPlus = (message) => {
-    return  `<div class="flex items-center gap-5 cursor-pointer hoverBg js-buttonPlus">
+    return  `<button class="flex items-center gap-5 cursor-pointer hoverBg js-buttonPlus">
                 <img class="w-4 h-4 js-rotate180" src="src/images/arrow-menu.svg" alt="Mais">
                 <p class="text-gray-400 text-base">Mais</p>
-            </div>
+            </button>
             <section class="hidden space-y-1 js-sectionPlus">
                 ${historyItem(message)}
             </section>
@@ -35,10 +35,10 @@ export const historyItemPlus = (message) => {
 // criar botão abrir histórico completo
 export const historyItemLoad = (message) => {
     return  `
-            <div class="space-y-1 flex items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
+            <button class="space-y-1 flex items-center gap-6 cursor-pointer hoverBg js-buttonLoad">
                 <img class="ml-[6px] js-rotate90" src="src/images/options.svg" alt="Carregar mais">
                 <p class="capitalize text-gray-400 text-base">Carregar Mais</p>
-            </div>
+            </button>
             <section class="hidden space-y-1 js-sectionLoad">
                 ${historyItem(message)}
             </section>
