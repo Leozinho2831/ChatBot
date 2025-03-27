@@ -32,20 +32,46 @@ document.onclick = (event) => {
     const buttonRename = menuOptions.children[0];
     const buttonDelete = menuOptions.children[1];
     
-    function renameHistory(contentRename){
-    
+    function renameHistory(textRename){
+        menuOptions.classList.add('hidden');
+        bgBlack.classList.add('hidden');
+
+        const input = document.createElement('input');
+        input.type = 'text';
+
+        // valor atual do texto no input
+        input.value = textRename.textContent;
+
+        // substitui o texto pelo input
+        textRename.replaceWith(input);
+
+        // verifica quando o input perde focus para faze replace
+        input.addEventListener('blur', () => {
+            textRename.textContent = input.value;
+            input.replaceWith(textRename);
+        });
+
+        // se usuário precionar enter ele faz a alteração
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                textRename.textContent = input.value;
+                input.replaceWith(textRename);
+            }
+        });
     }
     
     function deleteItemHistory(containerHistory){
     
     }
     
-    buttonRename.onclick = (event) => {
-        const contentRename = buttonOption.previousElementSibling;
-        renameHistory(contentRename);
+    buttonRename.onclick = () => {
+        const textRename = buttonOption.previousElementSibling
+        console.log(textRename);
+        
+        renameHistory(textRename);
     }
     
-    buttonDelete.onclick = (event) => {
+    buttonDelete.onclick = () => {
         const containerHistory = buttonOption.parentElement;
         deleteItemHistory(containerHistory);
     }
