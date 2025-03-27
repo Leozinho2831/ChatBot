@@ -38,6 +38,8 @@ document.onclick = (event) => {
 
         const input = document.createElement('input');
         input.type = 'text';
+        // classe de estilo
+        input.classList.add('toggleTextHistory');
 
         // valor atual do texto no input
         input.value = textRename.textContent;
