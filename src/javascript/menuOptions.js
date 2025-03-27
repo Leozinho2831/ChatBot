@@ -28,29 +28,33 @@ document.onclick = (event) => {
         openMenuOptions(event);
     }
 
+    // functions of menu options
+    const buttonRename = menuOptions.children[0];
+    const buttonDelete = menuOptions.children[1];
+    
+    function renameHistory(contentRename){
+    
+    }
+    
+    function deleteItemHistory(containerHistory){
+    
+    }
+    
+    buttonRename.onclick = (event) => {
+        const contentRename = buttonOption.previousElementSibling;
+        renameHistory(contentRename);
+    }
+    
+    buttonDelete.onclick = (event) => {
+        const containerHistory = buttonOption.parentElement;
+        deleteItemHistory(containerHistory);
+    }
+
+    // fechar menu option
     const verify = (!menuOptions.contains(event.target) && !event.target.closest('.js-options')) || event.target === bgBlack;
     
     if(verify){      
         menuOptions.classList.add('hidden');
         bgBlack.classList.add('hidden');
     }
-}
-
-const buttonRename = menuOptions.children[0];
-const buttonDelete = menuOptions.children[1];
-
-function renameHistory(){
-
-}
-
-function deleteItemHistory(){
-
-}
-
-buttonRename.onclick = (event) => {
-
-}
-
-buttonDelete.onclick = (event) => {
-
 }
