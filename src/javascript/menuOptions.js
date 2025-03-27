@@ -35,3 +35,22 @@ document.onclick = (event) => {
         bgBlack.classList.add('hidden');
     }
 }
+
+const buttonRename = menuOptions.children[0];
+const buttonDelete = menuOptions.children[1];
+
+function renameHistory(){
+
+}
+
+function deleteItemHistory(){
+
+}
+
+buttonRename.onclick = (event) => {
+
+}
+
+buttonDelete.onclick = (event) => {
+
+}
