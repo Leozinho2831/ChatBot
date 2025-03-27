@@ -1,4 +1,4 @@
-import { historyItem, firstMessage, historyItemPlus, historyItemLoad, openHistory } from './components.js';
+import { historyItem, firstHistory, historyItemPlus, historyItemLoad, openHistory } from './components.js';
 
 const nav = document.querySelector('.js-nav');
 const form = document.querySelector('.js-form');
@@ -34,7 +34,7 @@ function createMessage(){
     
     switch (true) {
         case navChild === 0:
-            nav.innerHTML += firstMessage(message);
+            nav.innerHTML += firstHistory(message);
             break;
         case navChild > 0 && navChild < 4: 
             nav.innerHTML += historyItem(message);
@@ -58,14 +58,9 @@ function createMessage(){
     input.value = '';
 }
 
-form.onsubmit = (event) => {
-    event.preventDefault();
-    createMessage();
-}
-
-form.onkeydown = (event) => {
-    if(event.key == 'Enter'){
+form.onsubmit = form.onkeydown = (event) => {
+    if(event.type === 'submit' || event.key == 'Enter'){
         event.preventDefault();
         createMessage();
     }
-};
+}
