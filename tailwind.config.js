@@ -31,7 +31,10 @@ module.exports = {
             },
             animation: {
                 fadeIn: 'fadeIn 0.3s ease forwards',
-            }
+            },
+            screens: {
+                'xs': '480px', 
+            },
         },
     },
     plugins: [],
