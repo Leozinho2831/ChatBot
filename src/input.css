@@ -72,4 +72,8 @@
     .grid-container.open-menu .js-sectionMenu {
         @apply grid opacity-100;
     }
+
+    .toggleTextHistory{
+        @apply flex-1 bg-transparent text-gray-400 text-base;
+    }
 }
