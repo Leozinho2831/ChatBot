@@ -1,4 +1,4 @@
-import { historyItem, firstMessage, historyItemPlus, historyItemLoad } from './components.js';
+import { historyItem, firstMessage, historyItemPlus, historyItemLoad, openHistory } from './components.js';
 
 const nav = document.querySelector('.js-nav');
 const form = document.querySelector('.js-form');
@@ -11,65 +11,15 @@ function openMoreHistory(){
     const sectionPlus = document.querySelector('.js-sectionPlus');
     const sectionLoad = document.querySelector('.js-sectionLoad');
 
-    function toggleTextPlus(element, button){
-        const containerItens = element.previousElementSibling;
-        const classRotate180 = 'rotate180'; 
-
-        if(containerItens.classList.contains('js-buttonPlus')){
-            const textPlus = 'Mais';
-            const textLess = 'Menos';
-                
-            containerItens.children[0].classList.toggle(classRotate180);
-    
-            if(containerItens.children[1].textContent === textPlus){
-                containerItens.children[1].textContent = textLess;
-    
-                button.classList.remove('hidden');
-                button.classList.add('flex');
-            } else {
-                containerItens.children[1].textContent = textPlus;
-    
-                button.classList.remove('flex');
-                button.classList.add('hidden');
-            }
-        } else if(button.classList.contains('js-buttonLoad')){
-            const textLoadPlus = 'Carregar Mais';
-            const textLoadLess = 'Carregar Menos';
-
-            containerItens.children[0].classList.toggle(classRotate180);
-
-            if(containerItens.children[1].textContent === textLoadPlus){
-                containerItens.children[1].textContent = textLoadLess;
-            } else {
-                containerItens.children[1].textContent = textLoadPlus;
-            }
-        } else {
-
-        }
-        
-    }
-
-    function openHistory(element, button){
-        if(element.classList.contains('hidden')){
-            element.classList.remove('hidden');
-            element.classList.add('block');
-        } else {
-            element.classList.remove('block');
-            element.classList.add('hidden');
-        }
-
-        toggleTextPlus(element, button);
-    }
-
     if(sectionPlus && buttonPlus){
         buttonPlus.onclick = () => {
-            openHistory(sectionPlus, buttonPlus);
+            openHistory(sectionPlus);
         }
     }
 
     if(sectionLoad && buttonLoad){
         buttonLoad.onclick = () => {
-            openHistory(sectionLoad, buttonLoad);
+            openHistory(sectionLoad);
         }
     }
 }
