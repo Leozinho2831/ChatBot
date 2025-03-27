@@ -1,6 +1,7 @@
+const menuOptions = document.querySelector('.js-menuOptions');
+const bgBlack = document.querySelector('.js-bgBlack');
+
 document.onclick = (event) => {    
-    const menuOptions = document.querySelector('.js-menuOptions');
-    const bgBlack = document.querySelector('.js-bgBlack');
     // usado para pegar o botão de clique e não precisar criar um evento de clique para ele, assim não precisando clicar duas vezes no botão
     const buttonOption = event.target.closest('.js-options');
 
@@ -27,9 +28,9 @@ document.onclick = (event) => {
         openMenuOptions(event);
     }
 
-    const verify = menuOptions && !menuOptions.contains(event.target) && !event.target.closest('.js-options') && event.target === bgBlack;
-
-    if(verify){
+    const verify = (!menuOptions.contains(event.target) && !event.target.closest('.js-options')) || event.target === bgBlack;
+    
+    if(verify){      
         menuOptions.classList.add('hidden');
         bgBlack.classList.add('hidden');
     }
