@@ -6,7 +6,7 @@ export const historyItem = (message) => {
                     <div></div>
                     <div class="!w-[10px]"></div>
                 </div>
-                <p class="flex-1 text-gray-400 text-base">${message}</p>
+                <p class="flex-1 text-gray-400 text-base truncate">${message}</p>
                 <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                     <img src="src/images/options.svg" alt="options">
                 </figure>
@@ -14,7 +14,7 @@ export const historyItem = (message) => {
             `;
 }
 
-export const firstMessage = (message) => {
+export const firstHistory = (message) => {
     return  `<b class="px-3 font-semibold text-gray-200 text-lg">Recentes</b>
             ${historyItem(message)}
             `;
