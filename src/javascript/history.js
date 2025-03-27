@@ -63,9 +63,9 @@ form.onsubmit = (event) => {
     createMessage();
 }
 
-form.addEventListener('keydown', (event) => {
+form.onkeydown = (event) => {
     if(event.key == 'Enter'){
         event.preventDefault();
         createMessage();
     }
-});
+};
