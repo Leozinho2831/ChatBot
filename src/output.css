@@ -1121,6 +1121,10 @@ video {
   padding: 3px;
 }
 
+.p-8 {
+  padding: 2rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
