@@ -18,6 +18,12 @@ chatInput.oninput = () => {
 }
 
 function chatBotText(){
+    const buttonConversation = document.querySelector('.js-newConversation');
+    const hoverButton = 'hover:bg-gray-950';
+
+    buttonConversation.disabled = false;
+    buttonConversation.classList.add(hoverButton);
+
     buttonSend.classList.add('hidden');
     buttonMic.classList.remove('hidden');
 
