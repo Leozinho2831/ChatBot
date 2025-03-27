@@ -54,13 +54,16 @@ function createMessage(){
             sectionLoad.innerHTML += historyItem(message);
             break;
     }
-
-    input.value = '';
 }
 
-form.onsubmit = form.onkeydown = (event) => {
-    if(event.type === 'submit' || event.key == 'Enter'){
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    createMessage();
+});
+
+form.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
         event.preventDefault();
         createMessage();
     }
-}
+});
