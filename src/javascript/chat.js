@@ -30,14 +30,23 @@ function chatBotText(){
     // const buttonCopy = document.querySelectorAll('.');
 }
 
-formChat.onsubmit = (event) => {
-    event.preventDefault();
-    chatBotText();
-}
+const titleChat = document.querySelector('.js-titleChat');
 
-formChat.onkeydown = (event) => {
-    if(event.key == 'Enter'){
-        event.preventDefault();
-        chatBotText();
+formChat.onsubmit = formChat.onkeydown = (event) => {
+    if(event.type === 'submit' || event.key == 'Enter'){
+
+        if(input.value != ''){
+            event.preventDefault();
+            chatBotText();
+            
+        } else if(titleChat){
+            event.preventDefault();
+            titleChat.textContent = 'Digite Algo!';
+    
+            setTimeout(() => {
+                titleChat.textContent = 'Pergunte qualquer coisa!';
+            }, 3000);
+        }
+
     }
-};
+}
