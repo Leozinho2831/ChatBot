@@ -28,6 +28,7 @@ function openMessagesText(){
             const text = openMessage.previousElementSibling;
 
             text.classList.toggle('truncate');
+            text.classList.toggle('break-words');
         }
     });
 }
