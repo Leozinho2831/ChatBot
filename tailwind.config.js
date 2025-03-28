@@ -27,10 +27,17 @@ module.exports = {
                     '0%': { opacity: 0 },
                     '65%': { opacity: 0 },
                     '100%': { opacity: 1 },
+                },
+                'textAlert': {
+                    '0%': { opacity: 0 },
+                    '10%': { opacity: 1 },
+                    '90%': { opacity: 1},
+                    '100%': { opacity: 0},
                 }
             },
             animation: {
                 fadeIn: 'fadeIn 0.3s ease forwards',
+                textAlert: 'textAlert 3s ease forwards'
             },
             screens: {
                 'xs': '480px', 
