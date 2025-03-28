@@ -1,4 +1,4 @@
-import { chatMessage } from './components.js'
+import { chatMessage, copyTextAI } from './components.js'
 
 const formChat = document.querySelector('.js-form');
 const chatInput = document.querySelector('.js-input');
@@ -51,7 +51,8 @@ function chatBotText(){
 
     openMessagesText();
     chatInput.value = '';
-    // const buttonCopy = document.querySelectorAll('.');
+
+    copyTextAI();
 }
 
 const titleChat = document.querySelector('.js-titleChat');
