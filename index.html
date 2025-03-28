@@ -54,14 +54,28 @@
             <h1 class="px-3 font-semibold text-gray-200 text-2xl">Você tem certeza que deseja apagar seu histórico?</h1>
             <button class="uppercase font-semibold text-sm text-gray-400 bg-gray-950/60 px-6 py-3 rounded-full hover:bg-gray-950 hover:text-red-600/90 js-deleteHistory">Apagar</button>
         </div>
-        <main class="grid grid-rows-[1fr,auto] grid-cols-1 gap-12 h-screen bg-gray-950 py-8 px-10 max-sm:gap-8 max-sm:py-6 max-sm:px-8">
+        <main class="relative grid grid-rows-[1fr,auto] grid-cols-1 gap-12 h-screen bg-gray-950 py-8 px-10 max-sm:gap-8 max-sm:py-6 max-sm:px-8">
             <!-- criar efeito de digitação com js -->
             <section class="relative justify-self-center self-center max-w-[900px] w-full max-h-[90%] h-full mt-16 py-4 px-5 flex flex-col gap-8 overflow-y-auto scrollable js-contentChat">
                 <!-- trocar texto pela conversa com js -->
-                <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center uppercase font-bold tracking-widest text-gray-200 text-4xl max-sm:3xl js-titleChat">
+                <!-- <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center uppercase font-bold tracking-widest text-gray-200 text-4xl max-sm:3xl js-titleChat">
                     Pergunte qualquer coisa!
-                </h1>
+                </h1> -->
+
+                <div class="self-end flex items-center gap-3 w-full max-w-[500px] bg-gray-800 text-gray-300 rounded-2xl rounded-tr-none py-4 px-6 shadow-[0_2px_3px_rgba(0,0,0,0.2)] max-xs:py-3 max-xs:px-5">
+                    <p class="max-w-[40ch] w-full truncate text-base max-xs:text-sm">${input.value}</p>
+                    <button class="self-start min-w-fit cursor-pointer p-2 rounded-full hover:bg-gray-700/70 js-rotate180 js-openMessageUser">
+                        <img class="w-5 h-5" src="src/images/arrow-menu.svg" alt="Ver mais">
+                    </button>
+                </div>
+                <div class="text-gray-300 flex flex-col gap-4 js-contentIa">
+                    <button class="self-end bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonCopy">
+                        <img class="w-5 h-5" src="src/images/copy.svg" alt="Copiar">
+                    </button>
+                    <p class="flex-1 text-base max-xs:text-sm js-responseIa">${responseIA}</p>
+                </div>
             </section>
+            <p class="absolute top-0 font-medium text-base bg-gray-800 text-gray-300 py-2 px-4 rounded-xl shadow-[0_2px_3px_rgba(0,0,0,0.2)] max-xs:text-sm finishedCopy js-alertCopy">A mensagem foi copiada!</p>
             <div class="self-end justify-self-center w-full max-w-[900px]">
                 <form class="js-form">
                     <label for="chat" class="min-w-52 flex flex-wrap gap-3 justify-between items-center border-2 border-gray-800 bg-gray-black/60 rounded-2xl py-4 px-5 shadow-[0_2px_3px_rgba(0,0,0,0.2)] hover:bg-gray-black hover:border-gray-700 focus:outline-none focus:bg-gray-black focus:border-gray-600">
