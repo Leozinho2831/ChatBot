@@ -17,6 +17,21 @@ chatInput.oninput = () => {
     }
 }
 
+function openMessagesText(){
+    const openMessages = document.querySelectorAll('.js-openMessageUser');
+
+    openMessages.forEach((openMessage) =>{
+        openMessage.onclick = () => {
+            const classRotate180 = 'rotate180';
+            openMessage.classList.toggle(classRotate180);
+        
+            const text = openMessage.previousElementSibling;
+
+            text.classList.toggle('truncate');
+        }
+    });
+}
+
 function chatBotText(){
     const buttonConversation = document.querySelector('.js-newConversation');
     const hoverButton = 'hover:bg-gray-950';
@@ -33,6 +48,7 @@ function chatBotText(){
         contentChat.innerHTML += chatMessage(chatInput);
     }
 
+    openMessagesText();
     chatInput.value = '';
     // const buttonCopy = document.querySelectorAll('.');
 }
