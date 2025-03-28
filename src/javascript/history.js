@@ -15,16 +15,26 @@ function createMessage(){
     } else {
         nav.innerHTML += historyItem(message);
     }
+
+    form.removeEventListener("submit", submit);
+    form.removeEventListener("keydown", keydown);
 }
 
-form.addEventListener('submit', (event) => {
+// necessário a criação dessas funções para remover o evento após primeiro uso
+function submit(event) {
     event.preventDefault();
     createMessage();
-});
+}
 
-form.addEventListener('keydown', (event) => {
+function keydown(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        createMessage();
+        if (!event.repeat) {
+            createMessage();
+        }
     }
-});
+}
+
+// é necessário que a função de evento deve estar registrada diretamente
+form.addEventListener('submit', submit);
+form.addEventListener('keydown', keydown);
