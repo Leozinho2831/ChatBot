@@ -844,6 +844,18 @@ video {
   max-width: 100%;
 }
 
+.max-w-\[50ch\] {
+  max-width: 50ch;
+}
+
+.max-w-\[30ch\] {
+  max-width: 30ch;
+}
+
+.max-w-\[40ch\] {
+  max-width: 40ch;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -974,6 +986,15 @@ video {
 
 .\!text-wrap {
   text-wrap: wrap !important;
+}
+
+.break-normal {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-2xl {

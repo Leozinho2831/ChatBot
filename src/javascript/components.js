@@ -23,7 +23,7 @@ export const firstHistory = (message) => {
 export const chatMessage = (input, responseIA) => {
     return  `
                 <div class="self-end flex items-center gap-3 w-full max-w-[500px] bg-gray-800 text-gray-300 rounded-2xl rounded-tr-none py-4 px-6 shadow-[0_2px_3px_rgba(0,0,0,0.2)] max-xs:py-3 max-xs:px-5">
-                    <p class="w-full truncate text-base max-xs:text-sm">${input.value}</p>
+                    <p class="max-w-[40ch] w-full truncate text-base max-xs:text-sm">${input.value}</p>
                     <button class="self-start min-w-fit cursor-pointer p-2 rounded-full hover:bg-gray-700/70 js-rotate180 js-openMessageUser">
                         <img class="w-5 h-5" src="src/images/arrow-menu.svg" alt="Ver mais">
                     </button>
