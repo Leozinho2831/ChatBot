@@ -29,10 +29,40 @@ export const chatMessage = (input, responseIA) => {
                     </button>
                 </div>
                 <div class="text-gray-300 flex flex-col gap-4 js-contentIa">
-                    <button class="self-end bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-copyMessage">
+                    <button class="self-end bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonCopy">
                         <img class="w-5 h-5" src="src/images/copy.svg" alt="Copiar">
                     </button>
                     <p class="flex-1 text-base max-xs:text-sm js-responseIa">${responseIA}</p>
                 </div>
             `;
+}
+
+// button copy
+export function copyTextAI(){
+    const buttonsCopy = document.querySelectorAll('.js-buttonCopy');
+    const alertCopy = document.querySelector('.js-alertCopy');
+
+    buttonsCopy.forEach((buttonCopy) => {
+        buttonCopy.onclick = () => {
+            const textCopy = buttonCopy.nextElementSibling;
+            const classTextCopy = 'finishedCopy';
+            navigator.clipboard.writeText(textCopy)
+                .then(() => {
+                    alertCopy.textContent = '';
+                    alertCopy.classList.remove(classTextCopy);
+
+                    setTimeout(() => {
+                        alertCopy.classList.add(classTextCopy);
+                    }, 3000);
+                })
+                .catch((error) => {
+                    alertCopy.textContent = '';
+                    alertCopy.classList.remove(classTextCopy);
+
+                    setTimeout(() => {
+                        alertCopy.classList.add(classTextCopy);
+                    }, 3000);
+                });
+        }
+    });
 }
