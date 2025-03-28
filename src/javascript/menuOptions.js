@@ -1,3 +1,4 @@
+const nav = document.querySelector('.js-nav');
 const menuOptions = document.querySelector('.js-menuOptions');
 const bgBlack = document.querySelector('.js-bgBlack');
 
@@ -63,12 +64,24 @@ document.onclick = (event) => {
     }
     
     function deleteItemHistory(containerHistory){
-    
+        containerHistory.remove();
+
+        const childrens =  Array.from(nav.children).filter(item => item.tagName !== "SECTION");
+        const sections = nav.querySelectorAll("section");
+
+        itens.forEach((item, index) => {
+            if (index < 5) {
+              nav.insertBefore(item, sections[0]); // Adiciona na nav principal
+            } else if (index < 10) {
+              sections[0].appendChild(item); // Adiciona na primeira section
+            } else {
+              sections[1].appendChild(item); // Adiciona na segunda section
+            }
+        });
     }
     
     buttonRename.onclick = () => {
         const textRename = buttonOption.previousElementSibling
-        console.log(textRename);
         
         renameHistory(textRename);
     }
