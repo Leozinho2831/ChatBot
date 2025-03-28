@@ -67,4 +67,8 @@
     .toggleTextHistory{
         @apply w-full bg-transparent text-gray-400 text-base border-b-2 border-b-gray-700 focus:outline-none;
     }
+
+    .finishedCopy{
+        @apply hidden opacity-0 animate-textAlert;
+    }
 }
