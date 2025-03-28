@@ -48,6 +48,8 @@ document.onclick = (event) => {
         // substitui o texto pelo input
         textRename.replaceWith(input);
 
+        input.focus();
+
         // verifica quando o input perde focus para faze replace
         input.addEventListener('blur', () => {
             textRename.textContent = input.value;
@@ -63,23 +65,6 @@ document.onclick = (event) => {
         });
     }
     
-    function deleteItemHistory(containerHistory){
-        containerHistory.remove();
-
-        const childrens =  Array.from(nav.children).filter(item => item.tagName !== "SECTION");
-        const sections = nav.querySelectorAll("section");
-
-        itens.forEach((item, index) => {
-            if (index < 5) {
-              nav.insertBefore(item, sections[0]); // Adiciona na nav principal
-            } else if (index < 10) {
-              sections[0].appendChild(item); // Adiciona na primeira section
-            } else {
-              sections[1].appendChild(item); // Adiciona na segunda section
-            }
-        });
-    }
-    
     buttonRename.onclick = () => {
         const textRename = buttonOption.previousElementSibling
         
@@ -88,13 +73,17 @@ document.onclick = (event) => {
     
     buttonDelete.onclick = () => {
         const containerHistory = buttonOption.parentElement;
-        deleteItemHistory(containerHistory);
+        containerHistory.remove();
+
+        if(nav.children.length === 1){
+            nav.innerHTML = '';
+        }
     }
 
     // fechar menu option
-    const verify = (!menuOptions.contains(event.target) && !event.target.closest('.js-options')) || event.target === bgBlack;
+    const verify = event.target.closest('.js-options');
     
-    if(verify){      
+    if(!verify){
         menuOptions.classList.add('hidden');
         bgBlack.classList.add('hidden');
     }
