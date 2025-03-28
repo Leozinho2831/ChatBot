@@ -9,7 +9,8 @@ document.onclick = (event) => {
     function openMenuOptions(event){
         const itemEvent = event.target;
 
-        const distanceTop = itemEvent.offsetTop - 10;
+        // pega a distância do topo da tela visível até o lugar do evento
+        const distanceTop = event.clientY - 20;
         
         if(widthScreen > 640){
             menuOptions.style.cssText = `top: ${distanceTop}px`;
