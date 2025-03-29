@@ -85,7 +85,7 @@ document.addEventListener('click', (event) => {
     }
 
     // fechar menu option
-    const verify = !event.target.closest('.js-menuOptions') && !buttonOption || menuOptions.children[1] === event.target;
+    const verify = (!event.target.closest('.js-menuOptions') && !buttonOption) || menuOptions.children[1].contains(event.target);    
     
     if(verify){
         menuOptions.classList.add('hidden');
