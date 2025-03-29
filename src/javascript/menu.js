@@ -36,7 +36,7 @@ document.body.onclick = (event) => {
         const menuNav = document.querySelector('.js-containerMenu');
         const bgBlack = document.querySelector('.js-bgBlack');
 
-        const verifyMenuMobile = !menuNav.contains(event.target) && !menu.contains(event.target) && event.target !== bgBlack;
+        const verifyMenuMobile = !menuNav.contains(event.target) && !menu.contains(event.target);
         
         if(verifyMenuMobile){
             gridContainer.classList.remove(classOpenMenu);
