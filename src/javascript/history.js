@@ -20,18 +20,36 @@ function createMessage(){
     form.removeEventListener("keydown", keydown);
 }
 
+const titleChat = document.querySelector('.js-titleChat');
+
 // necessário a criação dessas funções para remover o evento após primeiro uso
 function submit(event) {
-    event.preventDefault();
-    createMessage();
+    if(input.value != ''){
+        event.preventDefault();
+        createMessage();
+    } else {
+        titleChat.textContent = 'Digite Algo!';
+
+        setTimeout(() => {
+            titleChat.textContent = 'Pergunte qualquer coisa!';
+        }, 3000);
+    }
 }
 
 function keydown(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        if (!event.repeat) {
+
+        if (input.value != '' && !event.repeat) {
             createMessage();
+        } else if(titleChat) {
+            titleChat.textContent = 'Digite Algo!';
+
+            setTimeout(() => {
+                titleChat.textContent = 'Pergunte qualquer coisa!';
+            }, 3000);
         }
+        
     }
 }
 
