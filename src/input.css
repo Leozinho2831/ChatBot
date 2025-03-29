@@ -69,6 +69,6 @@
     }
 
     .finishedCopy{
-        @apply hidden opacity-0 animate-textAlert;
+        @apply !block opacity-0 animate-textAlert;
     }
 }
