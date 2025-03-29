@@ -43,25 +43,35 @@ export function copyTextAI(){
     const alertCopy = document.querySelector('.js-alertCopy');
 
     buttonsCopy.forEach((buttonCopy) => {
-        buttonCopy.onclick = () => {
+        buttonCopy.onclick = (event) => {
             const textCopy = buttonCopy.nextElementSibling;
             const classTextCopy = 'finishedCopy';
-            navigator.clipboard.writeText(textCopy)
+            // o valor menos é para fica acima do botão
+            const top = event.clientY - 40;
+            const right = window.innerWidth - event.clientX;
+
+            alertCopy.style.cssText = `top: ${top}px; right: ${right}px;`;
+
+            navigator.clipboard.writeText(textCopy.textContent)
                 .then(() => {
-                    alertCopy.textContent = '';
-                    alertCopy.classList.remove(classTextCopy);
+
+                    alertCopy.textContent = 'Copiado com sucesso!';
+                    alertCopy.classList.add(classTextCopy);
 
                     setTimeout(() => {
-                        alertCopy.classList.add(classTextCopy);
-                    }, 3000);
+                        alertCopy.classList.remove(classTextCopy);
+                    }, 1500);
+
                 })
-                .catch((error) => {
-                    alertCopy.textContent = '';
-                    alertCopy.classList.remove(classTextCopy);
+                .catch((error) => {       
+
+                    alertCopy.textContent = 'Não conseguimos fazer a copia';
+                    alertCopy.classList.add(classTextCopy);
 
                     setTimeout(() => {
-                        alertCopy.classList.add(classTextCopy);
-                    }, 3000);
+                        alertCopy.classList.remove(classTextCopy);
+                    }, 1500);
+
                 });
         }
     });
