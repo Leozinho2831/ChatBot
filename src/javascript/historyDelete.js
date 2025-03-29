@@ -24,13 +24,11 @@ buttonDeleteHistory.onclick = () => {
     deleteHistory();
 }
 
-const gridContainerMenu = document.querySelector('.grid-container');
-
-gridContainerMenu.onclick = (event) => {
+document.addEventListener('click', (event) => {
     const verifyHistory = !messageHistory.contains(event.target) && event.target === bgBlackHistory;
     
     if(verifyHistory){ 
         messageHistory.classList.add('hidden');
         bgBlackHistory.classList.add('hidden');
     }
-}
+});

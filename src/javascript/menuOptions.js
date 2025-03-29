@@ -2,7 +2,7 @@ const nav = document.querySelector('.js-nav');
 const menuOptions = document.querySelector('.js-menuOptions');
 const bgBlack = document.querySelector('.js-bgBlack');
 
-document.onclick = (event) => {    
+document.addEventListener('click', (event) => {    
     // usado para pegar o botão de clique e não precisar criar um evento de clique para ele, assim não precisando clicar duas vezes no botão
     const buttonOption = event.target.closest('.js-options');
 
@@ -33,43 +33,47 @@ document.onclick = (event) => {
     const buttonRename = menuOptions.children[0];
     const buttonDelete = menuOptions.children[1];
     
-    function renameHistory(textRename){
+    function renameHistory(textRename) {
         menuOptions.classList.add('hidden');
         bgBlack.classList.add('hidden');
-
+    
         const input = document.createElement('input');
         input.type = 'text';
-        // classe de estilo
         input.classList.add('toggleTextHistory');
-
-        // valor atual do texto no input
         input.value = textRename.textContent;
-
-        // substitui o texto pelo input
+    
         textRename.replaceWith(input);
-
         input.focus();
+    
+        function replaceInput() {
+            // verifica se o item não está na árvore do dom
+            if (!input.parentNode) return;
 
-        // verifica quando o input perde focus para faze replace
-        input.addEventListener('blur', () => {
             textRename.textContent = input.value;
             input.replaceWith(textRename);
-        });
-
-        // se usuário precionar enter ele faz a alteração
-        input.addEventListener('keydown', (event) => {
+    
+            // Remover os eventos para evitar chamadas duplicadas
+            input.removeEventListener('blur', replaceInput);
+            input.removeEventListener('keydown', handleKeydown);
+        }
+    
+        function handleKeydown(event) {
             if (event.key === 'Enter') {
-                textRename.textContent = input.value;
-                input.replaceWith(textRename);
+                // se for pelo enter remove o evento de blur
+                input.removeEventListener('blur', replaceInput);
+                replaceInput();
             }
-        });
+        }
+    
+        input.addEventListener('blur', replaceInput);
+        input.addEventListener('keydown', handleKeydown);
     }
     
     buttonRename.onclick = () => {
-        const textRename = buttonOption.previousElementSibling
-        
+        const textRename = buttonOption.previousElementSibling;
         renameHistory(textRename);
-    }
+    };
+    
     
     buttonDelete.onclick = () => {
         const containerHistory = buttonOption.parentElement;
@@ -80,12 +84,11 @@ document.onclick = (event) => {
         }
     }
 
-    event.stopPropagation();
     // fechar menu option
-    const verify = !event.target.closest('.js-menuOptions') && !buttonOption;
+    const verify = !event.target.closest('.js-menuOptions') && !buttonOption || menuOptions.children[1] === event.target;
     
     if(verify){
         menuOptions.classList.add('hidden');
         bgBlack.classList.add('hidden');
     }
-}
+});

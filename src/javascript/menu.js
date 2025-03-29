@@ -31,12 +31,13 @@ menu.onclick = (event) => {
 }
 
 // menu close mobile
-document.body.onclick = (event) => {
+document.addEventListener('click', (event) => {
     if(widthScreen < 640){
         const menuNav = document.querySelector('.js-containerMenu');
         const bgBlack = document.querySelector('.js-bgBlack');
+        const menuOptions = document.querySelector('.js-menuOptions');
 
-        const verifyMenuMobile = !menuNav.contains(event.target) && !menu.contains(event.target);
+        const verifyMenuMobile = !menuNav.contains(event.target) && !menu.contains(event.target) && !menuOptions.contains(event.target) || bgBlack.contains(event.target) ;
         
         if(verifyMenuMobile){
             gridContainer.classList.remove(classOpenMenu);
@@ -45,4 +46,4 @@ document.body.onclick = (event) => {
             sectionMenu.classList.add('hidden');
         }
     }
-}
+});
