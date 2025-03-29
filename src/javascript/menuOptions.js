@@ -7,7 +7,6 @@ document.onclick = (event) => {
     const buttonOption = event.target.closest('.js-options');
 
     function openMenuOptions(event){
-        const itemEvent = event.target;
 
         // pega a distância do topo da tela visível até o lugar do evento
         const distanceTop = event.clientY - 20;
@@ -81,10 +80,11 @@ document.onclick = (event) => {
         }
     }
 
+    event.stopPropagation();
     // fechar menu option
-    const verify = event.target.closest('.js-options');
+    const verify = !event.target.closest('.js-menuOptions') && !buttonOption;
     
-    if(!verify){
+    if(verify){
         menuOptions.classList.add('hidden');
         bgBlack.classList.add('hidden');
     }
