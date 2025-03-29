@@ -76,7 +76,7 @@ formChat.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
 
-        if (chatInput.value !== '') {
+        if (chatInput.value !== '' && !event.repeat) {
             chatBotText();
         } else if (titleChat) {
             titleChat.textContent = 'Digite Algo!';
