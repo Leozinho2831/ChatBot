@@ -1,4 +1,4 @@
-import { chatMessage, copyTextAI } from './components.js'
+import { chatMessage, copyTextAI, chatMessageIA } from './components.js'
 
 const formChat = document.querySelector('.js-form');
 const chatInput = document.querySelector('.js-input');
@@ -45,14 +45,33 @@ function chatBotText(){
 
     if(contentChat.children.length === 1){
         contentChat.innerHTML = chatMessage(chatInput);
+        // passa message ia
+        contentChat.innerHTML += chatMessageIA();
     } else {
         contentChat.innerHTML += chatMessage(chatInput);
+        contentChat.innerHTML += chatMessageIA();
     }
 
     openMessagesText();
     chatInput.value = '';
 
     copyTextAI();
+
+    const contentIA = document.querySelectorAll('.js-contentIA');
+    
+    const lastMessageIA = contentIA[contentIA.length - 1];
+
+    // cria um modo que quando o await acabar e existir a messageIA ele remove o hidden
+    setTimeout(() => {
+        const messageIA = null;
+
+        if(messageIA === null){            
+            lastMessageIA.children[1].classList.remove('hidden');
+            lastMessageIA.children[1].classList.add('flex');
+    
+            lastMessageIA.children[0].remove();
+        }
+    }, 4000);
 }
 
 const titleChat = document.querySelector('.js-titleChat');
