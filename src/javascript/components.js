@@ -20,7 +20,7 @@ export const firstHistory = (message) => {
             `;
 }
 
-export const chatMessage = (input, responseIA) => {
+export const chatMessage = (input) => {
     return  `
                 <div class="self-end flex items-center gap-3 w-full max-w-[500px] bg-gray-800 text-gray-300 rounded-2xl rounded-tr-none py-4 px-6 shadow-[0_2px_3px_rgba(0,0,0,0.2)] max-xs:py-3 max-xs:px-5">
                     <p class="max-w-[40ch] w-full truncate text-base max-xs:text-sm">${input.value}</p>
@@ -28,11 +28,23 @@ export const chatMessage = (input, responseIA) => {
                         <img class="w-5 h-5" src="src/images/arrow-menu.svg" alt="Ver mais">
                     </button>
                 </div>
-                <div class="text-gray-300 flex flex-col gap-4 js-contentIa">
-                    <button class="self-end bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonCopy">
-                        <img class="w-5 h-5" src="src/images/copy.svg" alt="Copiar">
-                    </button>
-                    <p class="flex-1 text-base max-xs:text-sm js-responseIa">${responseIA}</p>
+            `;
+}
+
+export const chatMessageIA = (responseIA) => {
+    return  `
+                <div class="text-gray-300 js-contentIA">
+                    <div class="flex items-center gap-2 *:w-2 *:h-2 *:rounded-full *:bg-gray-400 animateBounce">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="hidden flex-col">
+                        <button class="self-end bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonCopy">
+                            <img class="w-5 h-5" src="src/images/copy.svg" alt="Copiar">
+                        </button>
+                        <p class="flex-1 text-base max-xs:text-sm js-responseIa">${responseIA}</p>
+                    </div>
                 </div>
             `;
 }
