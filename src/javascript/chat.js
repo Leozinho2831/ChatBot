@@ -1,4 +1,4 @@
-import { chatMessage, copyTextAI, chatMessageIA } from './components.js'
+import { typing, chatMessage, copyTextAI, chatMessageIA } from './components.js'
 
 const formChat = document.querySelector('.js-form');
 const chatInput = document.querySelector('.js-input');
@@ -74,7 +74,11 @@ function chatBotText(){
     }, 4000);
 }
 
+// iniciar página com efeito de digitação
 const titleChat = document.querySelector('.js-titleChat');
+const text = 'Pergunte qualquer coisa!';
+
+typing(titleChat, text, 100);
 
 // addEventListener não sobrescreve eventos
 formChat.addEventListener('submit', (event) => {
