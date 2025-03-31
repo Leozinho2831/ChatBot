@@ -20,6 +20,26 @@ export const firstHistory = (message) => {
             `;
 }
 
+// typing animation
+export function typing(element, text, time){
+    const words = text.split('');
+    
+    let i = 0;
+
+    function type(){
+        if(i < words.length){
+            element.textContent += words[i];
+            i++;
+
+            setTimeout(type, time);
+        }
+    }
+
+    type();
+}
+
+
+// mensagem IA
 export const chatMessage = (input) => {
     return  `
                 <div class="self-end flex items-center gap-3 w-full max-w-[500px] bg-gray-800 text-gray-300 rounded-2xl rounded-tr-none py-4 px-6 shadow-[0_2px_3px_rgba(0,0,0,0.2)] max-xs:py-3 max-xs:px-5">
