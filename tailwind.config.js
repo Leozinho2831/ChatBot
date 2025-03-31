@@ -31,13 +31,13 @@ module.exports = {
                 'textAlert': {
                     '0%': { opacity: 0 },
                     '20%': { opacity: 1 },
-                    '80%': { opacity: 1},
-                    '100%': { opacity: 0},
-                }
+                    '80%': { opacity: 1 },
+                    '100%': { opacity: 0 },
+                },
             },
             animation: {
                 fadeIn: 'fadeIn 0.3s ease forwards',
-                textAlert: 'textAlert 1.5s ease forwards'
+                textAlert: 'textAlert 1.5s ease forwards',
             },
             screens: {
                 'xs': '480px', 
