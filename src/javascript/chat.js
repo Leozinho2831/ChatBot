@@ -70,6 +70,8 @@ function chatBotText(){
             lastMessageIA.children[1].classList.add('flex');
     
             lastMessageIA.children[0].remove();
+
+            typing(lastMessageIA.children[1].children[1], messageIA, 40);
         }
     }, 4000);
 }
