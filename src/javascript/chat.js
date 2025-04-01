@@ -85,7 +85,7 @@ async function chatBotText(){
         });
 
         // converte a resposta em um objeto javascript
-        const data = await response.json().message;
+        const data = await response.json();
         // acessa a mensagem após a promissa resolver
         const messageIA = data.message;
 
