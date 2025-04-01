@@ -43,6 +43,14 @@ async function chatBotText(){
     buttonSend.classList.add('hidden');
     buttonMic.classList.remove('hidden');
 
+    if(contentChat.children.length === 1){
+        contentChat.innerHTML = chatMessage(chatInput);
+        contentChat.innerHTML += chatMessageIA();
+    } else {
+        contentChat.innerHTML += chatMessage(chatInput);
+        contentChat.innerHTML += chatMessageIA();
+    }
+
     function displayMessage(messageIA){
         openMessagesText();
         copyTextAI();
@@ -80,14 +88,6 @@ async function chatBotText(){
         const data = await response.json().message;
         // acessa a mensagem após a promissa resolver
         const messageIA = data.message;
-        
-        if(contentChat.children.length === 1){
-            contentChat.innerHTML = chatMessage(chatInput);
-            contentChat.innerHTML += chatMessageIA();
-        } else {
-            contentChat.innerHTML += chatMessage(chatInput);
-            contentChat.innerHTML += chatMessageIA();
-        }
 
         displayMessage(messageIA);  
     } catch(error) {
