@@ -1,4 +1,4 @@
-import { typing, chatMessage, copyTextAI, chatMessageIA } from './components.js'
+import { typing, chatMessage, copyTextAI, chatMessageIA } from './components.js';
 
 const formChat = document.querySelector('.js-form');
 const chatInput = document.querySelector('.js-input');
@@ -33,7 +33,7 @@ function openMessagesText(){
     });
 }
 
-function chatBotText(){
+async function chatBotText(){
     const buttonConversation = document.querySelector('.js-newConversation');
     const hoverButton = 'hover:bg-gray-950';
 
@@ -43,39 +43,58 @@ function chatBotText(){
     buttonSend.classList.add('hidden');
     buttonMic.classList.remove('hidden');
 
-    // Mensagem da Ia
-    const messageIA = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ratione consequuntur unde totam neque harum, corporis vero quasi, quas, eum minus ab sit eligendi aperiam odit repellendus veritatis quae qui!';
-
-    if(contentChat.children.length === 1){
-        contentChat.innerHTML = chatMessage(chatInput);
-        contentChat.innerHTML += chatMessageIA();
-    } else {
-        contentChat.innerHTML += chatMessage(chatInput);
-        contentChat.innerHTML += chatMessageIA();
+    function displayMessage(messageIA){
+        openMessagesText();
+        copyTextAI();
+        chatInput.value = '';
+    
+        const contentIA = document.querySelectorAll('.js-contentIA');
+        
+        const lastMessageIA = contentIA[contentIA.length - 1];
+    
+        // cria um modo que quando o await acabar e existir a messageIA ele remove o hidden      
+        lastMessageIA.children[1].classList.remove('hidden');
+        lastMessageIA.children[1].classList.add('flex');
+    
+        lastMessageIA.children[0].remove();
+    
+        const responseIA = lastMessageIA.children[0].children[1];
+    
+        typing(responseIA, messageIA, 15);
     }
 
-    openMessagesText();
-    chatInput.value = '';
+    // Mensagem da Ia
+    try {
+        const response = await fetch("https://chat-bot-leo.vercel.app/api/apiRequest", {
+            // método post, usado para enviar dados
+            method: "POST",
+            // indica ao corpo da requisição que formato é JSON
+            headers: {
+                "Content-Type": "application/json",
+            },
+            // envia o valor como JSON
+            body: JSON.stringify({ input: chatInput.value }), 
+        });
 
-    copyTextAI();
-
-    const contentIA = document.querySelectorAll('.js-contentIA');
-    
-    const lastMessageIA = contentIA[contentIA.length - 1];
-
-    // cria um modo que quando o await acabar e existir a messageIA ele remove o hidden
-    setTimeout(() => {
-        if(messageIA){         
-            lastMessageIA.children[1].classList.remove('hidden');
-            lastMessageIA.children[1].classList.add('flex');
-
-            lastMessageIA.children[0].remove();
-
-            const responseIA = lastMessageIA.children[0].children[1];
-
-            typing(responseIA, messageIA, 15);
+        // converte a resposta em um objeto javascript
+        const data = await response.json().message;
+        // acessa a mensagem após a promissa resolver
+        const messageIA = data.message;
+        
+        if(contentChat.children.length === 1){
+            contentChat.innerHTML = chatMessage(chatInput);
+            contentChat.innerHTML += chatMessageIA();
+        } else {
+            contentChat.innerHTML += chatMessage(chatInput);
+            contentChat.innerHTML += chatMessageIA();
         }
-    }, 4000);
+
+        displayMessage(messageIA);  
+    } catch(error) {
+        const textError = 'Houve um problema, tente novamente mais tarde!';
+
+        displayMessage(textError);
+    }
 }
 
 // iniciar página com efeito de digitação
