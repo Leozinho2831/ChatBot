@@ -1,7 +1,5 @@
-// biblioteca para variável ambiente
-import dotenv from 'dotenv';
-// importa a api
-import { GoogleGenerativeAI } from  '@google/generative-ai';
+import dotenv from 'dotenv'; // biblioteca para variável ambiente
+import { GoogleGenerativeAI } from  '@google/generative-ai'; // importa a api
 
 // carrega as variáveis ambiente
 dotenv.config();
@@ -26,7 +24,14 @@ export default async function handler(req, res){
             // gera a resposta com texto da entrada
             const result = await model.generateContent(input);
             console.log("Resultado da API:", result);
-            const response = result.response;
+            // const response = result.response;
+
+            const responseText = result?.response?.text ? result.response.text() : result?.response;
+
+            // Verifica se a resposta foi gerada corretamente
+            if (!responseText) {
+                return res.status(500).json({ message: "Não foi possível gerar a resposta." });
+            }
     
             // envia a resposta da IA de volta ao frontend
             res.status(200).json({ message: response.text() });
@@ -38,3 +43,14 @@ export default async function handler(req, res){
         return res.status(405).json({ message: "Método não permitido" });
     }
 }
+
+console.log(handler({
+    // método POST, usado para enviar dados
+    method: "POST",
+    // indica ao corpo da requisição que formato é JSON
+    headers: {
+        "Content-Type": "application/json",
+    },
+    // envia o valor como JSON
+    body: JSON.stringify({ input: 'olá' }), 
+}));
