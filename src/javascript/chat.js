@@ -43,9 +43,11 @@ function chatBotText(){
     buttonSend.classList.add('hidden');
     buttonMic.classList.remove('hidden');
 
+    // Mensagem da Ia
+    const messageIA = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ratione consequuntur unde totam neque harum, corporis vero quasi, quas, eum minus ab sit eligendi aperiam odit repellendus veritatis quae qui!';
+
     if(contentChat.children.length === 1){
         contentChat.innerHTML = chatMessage(chatInput);
-        // passa message ia
         contentChat.innerHTML += chatMessageIA();
     } else {
         contentChat.innerHTML += chatMessage(chatInput);
@@ -63,15 +65,15 @@ function chatBotText(){
 
     // cria um modo que quando o await acabar e existir a messageIA ele remove o hidden
     setTimeout(() => {
-        const messageIA = null;
-
-        if(messageIA === null){            
+        if(messageIA){         
             lastMessageIA.children[1].classList.remove('hidden');
             lastMessageIA.children[1].classList.add('flex');
-    
+
             lastMessageIA.children[0].remove();
 
-            typing(lastMessageIA.children[1].children[1], messageIA, 40);
+            const responseIA = lastMessageIA.children[0].children[1];
+
+            typing(responseIA, messageIA, 15);
         }
     }, 4000);
 }
