@@ -51,7 +51,7 @@ export const chatMessage = (input) => {
             `;
 }
 
-export const chatMessageIA = (responseIA) => {
+export const chatMessageIA = () => {
     return  `
                 <div class="text-gray-300 js-contentIA">
                     <div class="flex items-center gap-2 *:w-2 *:h-2 *:rounded-full *:bg-gray-400 animateBounce">
@@ -59,11 +59,11 @@ export const chatMessageIA = (responseIA) => {
                         <div></div>
                         <div></div>
                     </div>
-                    <div class="hidden flex-col">
+                    <div class="hidden flex-col gap-3">
                         <button class="self-end bg-gray-400 p-2 rounded-full cursor-pointer hover:bg-gray-500 js-buttonCopy">
                             <img class="w-5 h-5" src="src/images/copy.svg" alt="Copiar">
                         </button>
-                        <p class="flex-1 text-base max-xs:text-sm js-responseIa">${responseIA}</p>
+                        <p class="flex-1 text-base max-xs:text-sm js-responseIa"></p>
                     </div>
                 </div>
             `;
