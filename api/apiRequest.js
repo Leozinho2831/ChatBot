@@ -7,9 +7,11 @@ import { GoogleGenerativeAI } from  '@google/generative-ai';
 dotenv.config();
 
 export default async function handler(req, res){
+    console.log("Requisição recebida:", req.method);
     // verifico se meu método de request é post
     if (req.method === "POST") {
         try {
+            console.log("Input recebido:", input);
             // desestrutura o 'input' do corpo da requisição
             const { input } = req.body;
     
@@ -23,6 +25,7 @@ export default async function handler(req, res){
     
             // gera a resposta com texto da entrada
             const result = await model.generateContent(input);
+            console.log("Resultado da API:", result);
             const response = result.response;
     
             // envia a resposta da IA de volta ao frontend
