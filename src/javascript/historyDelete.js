@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function deleteHistory(){
         // deletar o storage
         nav.innerHTML = '';
-        messageHistory.classList.add('hidden');
-        bgBlackHistory.classList.add('hidden');
+        location.reload();
     }
 
     buttonDeleteHistory.onclick = () => {
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 nav.innerHTML = '';
             }
         }
-        
+            
         const verifyHistory = !messageHistory.contains(event.target) && event.target === bgBlackHistory;
         
         if(verifyHistory){ 
