@@ -25,6 +25,21 @@ buttonDeleteHistory.onclick = () => {
 }
 
 document.addEventListener('click', (event) => {
+    const menuOptions = document.querySelector('.js-menuOptions');
+    const buttonDelete = menuOptions.children[1];
+
+    const buttonOption = event.target.closest('.js-options');
+
+    buttonDelete.onclick = () => {
+        const containerHistory = buttonOption.parentElement;
+        containerHistory.remove();
+
+        // remover do storage
+        if(nav.children.length === 1){
+            nav.innerHTML = '';
+        }
+    }
+    
     const verifyHistory = !messageHistory.contains(event.target) && event.target === bgBlackHistory;
     
     if(verifyHistory){ 
