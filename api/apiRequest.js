@@ -4,25 +4,29 @@ import { GoogleGenerativeAI } from  '@google/generative-ai'; // importa a api
 // carrega as variáveis ambiente
 dotenv.config();
 
-async function handler(req, res){
+async function apiRequestIA(req, res){
     // verifico se meu método de request é post
     if (req.method === "POST") {
         try {
             // desestrutura o 'input' do corpo da requisição
-            const { input } = req.body;
+            const { input, context } = req.body;
     
             // verifica se o input foi enviado
-            if(!input){
-                console.log('input não existe');
-                
+            if(!input){    
                 return res.status(400).json({ message: "Faltando o texto de entrada." });
             }
     
             const genIA = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
             const model = genIA.getGenerativeModel({ model: 'gemini-2.0-flash'});  
-    
+            
+            let prompt = input;
+
+            // cria um prompt para o histórico de conversas
+            if(context && context == 'resume'){
+                prompt = `Resuma a seguinte mensagem em poucas palavras, destacando o ponto principal:\n"${input}"`;
+            }
             // gera a resposta com texto da entrada
-            const result = await model.generateContent(input);
+            const result = await model.generateContent(prompt);
             
             const response = result.response;        
             
