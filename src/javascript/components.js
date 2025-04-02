@@ -1,12 +1,14 @@
 // components
-export const historyItem = (message) => {
-    return  `<div class="flex flex-1 items-center gap-5 cursor-pointer hoverBg js-message">
+export const historyItem = () => {
+    return  `<div class="flex flex-1 items-center gap-5 cursor-pointer glass js-message">
                 <div class="space-y-[2px] *:w-4 *:h-[2px] *:bg-gray-500">
                     <div></div>
                     <div></div>
                     <div class="!w-[10px]"></div>
                 </div>
-                <p class="flex-1 text-gray-400 text-base truncate">${message}</p>
+                <p class="flex-1 text-gray-400 text-base truncate">
+                
+                </p>
                 <figure class="inline-flex items-center justify-center w-8 h-8 !p-0 hoverBg js-options">
                     <img src="src/images/options.svg" alt="options">
                 </figure>
@@ -14,9 +16,9 @@ export const historyItem = (message) => {
             `;
 }
 
-export const firstHistory = (message) => {
+export const firstHistory = () => {
     return  `<b class="px-3 font-semibold text-gray-200 text-lg">Recentes</b>
-            ${historyItem(message)}
+            ${historyItem()}
             `;
 }
 
@@ -40,10 +42,10 @@ export function typing(element, text, time){
 
 
 // mensagem IA
-export const chatMessage = (input) => {
+export const chatMessage = (inputValue) => {
     return  `
                 <div class="self-end flex items-center gap-3 w-full max-w-[500px] bg-gray-800 text-gray-300 rounded-2xl rounded-tr-none py-4 px-6 shadow-[0_2px_3px_rgba(0,0,0,0.2)] max-xs:py-3 max-xs:px-5">
-                    <p class="max-w-[40ch] w-full truncate text-base max-xs:text-sm">${input.value}</p>
+                    <p class="max-w-[40ch] w-full truncate text-base max-xs:text-sm">${inputValue}</p>
                     <button class="self-start min-w-fit cursor-pointer p-2 rounded-full hover:bg-gray-700/70 js-rotate180 js-openMessageUser">
                         <img class="w-5 h-5" src="src/images/arrow-menu.svg" alt="Ver mais">
                     </button>
