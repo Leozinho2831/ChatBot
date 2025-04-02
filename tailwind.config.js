@@ -34,10 +34,15 @@ module.exports = {
                     '80%': { opacity: 1 },
                     '100%': { opacity: 0 },
                 },
+                'glassEffect': {
+                    '0%': { transform: 'translate(-100%) rotate(45deg)' },
+                    '100%': { transform: 'translate(100%) rotate(45deg)' }
+                }
             },
             animation: {
                 fadeIn: 'fadeIn 0.3s ease forwards',
                 textAlert: 'textAlert 1.5s ease forwards',
+                glassEffect: 'glassEffect 0.8s infinite linear',
             },
             screens: {
                 'xs': '480px', 
