@@ -6,7 +6,7 @@ if(!appContent){
     document.body.appendChild(appContent);
 }
     
-function app(){
+export default function app(){
     appContent.innerHTML = 
     `
     <div class="absolute top-6 z-20 left-1 px-6 space-y-5">
