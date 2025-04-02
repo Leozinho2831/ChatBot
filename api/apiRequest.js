@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from  '@google/generative-ai'; // importa a api
 // carrega as variáveis ambiente
 dotenv.config();
 
-export default async function handler(req, res){
+async function handler(req, res){
     // verifico se meu método de request é post
     if (req.method === "POST") {
         try {
