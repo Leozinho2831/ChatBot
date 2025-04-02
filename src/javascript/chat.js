@@ -52,10 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
             contentChat.innerHTML += chatMessageIA();
         }
 
+        const inputValue = chatInput.value;    
+        chatInput.value = '';
+
         function displayMessage(messageIA){
             openMessagesText();
             copyTextAI();
-            chatInput.value = '';
         
             const contentIA = document.querySelectorAll('.js-contentIA');
             
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Content-Type": "application/json",
                 },
                 // envia o valor como JSON
-                body: JSON.stringify({ input: chatInput.value }), 
+                body: JSON.stringify({ input: inputValue }), 
             });
 
             // converte a resposta em um objeto javascript
