@@ -23,7 +23,7 @@ export default async function apiRequestIA(req, res){
 
             // cria um prompt para o histórico de conversas
             if(context && context == 'resume'){
-                prompt = `Resuma a seguinte mensagem em poucas palavras, destacando o ponto principal:\n"${input}"`;
+                prompt = `Você receberá um texto e sua tarefa é gerar um título curto e impactante que simbolize o tema principal do conteúdo. O título deve ter de 2 a 3 palavras, ser direto e representativo. Evite palavras genéricas ou muito abstratas. Mantenha a clareza e a relevância:\n"${input}"`;
             }
             // gera a resposta com texto da entrada
             const result = await model.generateContent(prompt);
