@@ -739,6 +739,46 @@ video {
   animation-fill-mode: both;
 }
 
+.glass {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: rgb(64 64 64 / 0.7);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  --tw-backdrop-blur: blur(10px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.glass::before {
+  pointer-events: none;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  height: 100%;
+  width: 200%;
+}
+
+@keyframes glassEffect {
+  0% {
+    transform: translate(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translate(100%) rotate(45deg);
+  }
+}
+
+.glass::before {
+  animation: glassEffect 0.8s infinite linear;
+  content: '';
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateX(-100%) rotate(45deg);
+}
+
 .absolute {
   position: absolute;
 }
@@ -1003,12 +1043,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
-
-.space-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
 .space-y-5 > :not([hidden]) ~ :not([hidden]) {
