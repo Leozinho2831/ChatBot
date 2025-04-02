@@ -3,18 +3,52 @@ import { firstHistory, historyItem } from './components.js';
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.js-nav');
     const form = document.querySelector('.js-form');
-    const input = document.querySelector('.js-input');
+    const chatInput = document.querySelector('.js-input');
 
-    function createMessage(){
+    async function createMessage(){
         const navChild = nav.querySelectorAll('.js-message').length;
 
-        // trocar texto por criação do gimini
-        const message = `${input.value}`;
-
         if(navChild === 0){
-            nav.innerHTML += firstHistory(message);
+            nav.innerHTML += firstHistory();
         } else {
-            nav.innerHTML += historyItem(message);
+            nav.innerHTML += historyItem();
+        }
+
+        let messageHistory;
+
+        function textHistory(messageHistory){
+            const messagesContents = document.querySelectorAll('.js-message');
+
+            const newMessageContent = messagesContents[messagesContents.length - 1];
+
+            const classAnimateGlass = 'glass';
+            const classHoverBg = 'hoverBg';
+            
+            newMessageContent.classList.remove(classAnimateGlass);
+            newMessageContent.classList.add(classHoverBg);
+            
+            newMessageContent.children[1].textContent = messageHistory;
+        }
+
+        try {
+            const response = await fetch("https://chat-bot-leo.vercel.app/api/apiRequest", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ 
+                    input: chatInput.value,
+                    context: 'resume',
+                }), 
+            });
+    
+            const data = await response.json();
+            messageHistory = data.message;
+
+            textHistory(messageHistory);
+        } catch(error){
+            messageHistory = 'Erro';
+            textHistory(messageHistory);
         }
 
         form.removeEventListener("submit", submit);
@@ -25,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // necessário a criação dessas funções para remover o evento após primeiro uso
     function submit(event) {
-        if(input.value != ''){
+        if(chatInput.value != ''){
             event.preventDefault();
             createMessage();
         } else {
@@ -41,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Enter') {
             event.preventDefault();
 
-            if (input.value != '' && !event.repeat) {
+            if (chatInput.value != '' && !event.repeat) {
                 createMessage();
             } else if(titleChat) {
                 titleChat.textContent = 'Digite Algo!';
