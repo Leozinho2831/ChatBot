@@ -45,19 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonMic.classList.remove('hidden');
 
         if(contentChat.children.length === 1){
-            contentChat.innerHTML = chatMessage(chatInput);
+            contentChat.innerHTML = chatMessage(chatInput.value);
             contentChat.innerHTML += chatMessageIA();
         } else {
-            contentChat.innerHTML += chatMessage(chatInput);
+            contentChat.innerHTML += chatMessage(chatInput.value);
             contentChat.innerHTML += chatMessageIA();
-        }
-
-        const inputValue = chatInput.value;    
-        chatInput.value = '';
+        }  
 
         function displayMessage(messageIA){
             openMessagesText();
             copyTextAI();
+            chatInput.value = '';
         
             const contentIA = document.querySelectorAll('.js-contentIA');
             
@@ -75,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Mensagem da Ia
-        try {
+        try {           
             const response = await fetch("https://chat-bot-leo.vercel.app/api/apiRequest", {
                 // método post, usado para enviar dados
                 method: "POST",
@@ -84,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Content-Type": "application/json",
                 },
                 // envia o valor como JSON
-                body: JSON.stringify({ input: inputValue }), 
+                body: JSON.stringify({ input: chatInput.value }), 
             });
 
             // converte a resposta em um objeto javascript
@@ -93,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const messageIA = data.message;
 
             displayMessage(messageIA);  
-        } catch(error) {
+        } catch(error) {    
             const textError = 'Houve um problema, tente novamente mais tarde!';
 
             displayMessage(textError);
