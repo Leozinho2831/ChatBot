@@ -13,7 +13,9 @@ requestDB.onupgradeneeded = (event) => {
 
 // executa se abrir o banco com sucesso
 requestDB.onsuccess = (event) => {
+    let db = event.target.result;
     
+    let transaction = db.transaction('nav', 'readwrite');
 }
 
 // executa se der erro para abrir o banco
