@@ -35,8 +35,9 @@ export function typing(element, text, time){
             if(words[i] == '<'){
                 isTag = true;
                 constructionTag += words[i];
-                i++;
                 console.log('inicio tag <', constructionTag);
+                console.log(isTag);
+
                 
             } else if(isTag){
                 constructionTag += words[i];
@@ -48,15 +49,17 @@ export function typing(element, text, time){
                     constructionTag = '';
                     i++
                     console.log('segunda parte', constructionTag);
+                    console.log(isTag);
+                    
                     
                 }
             } else {
                 element.innerHTML += words[i];
-                i++;
                 console.log(element.innerHTML, 'final');
                 
             }
 
+            i++;
             setTimeout(type, time);
         }
     }
