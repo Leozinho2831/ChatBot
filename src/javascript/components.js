@@ -49,6 +49,8 @@ export function typing(element, text, time){
             } else {
                 element.innerHTML += words[i];
                 i++;
+                console.log(element.innerHTML);
+                
             }
 
             setTimeout(type, time);

@@ -98,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\n/g, '<br>');
 
+            console.log(messageIAFormated);
+            
+
             displayMessage(messageIAFormated);  
         } catch(error) {    
             const textError = 'Houve um problema, tente novamente mais tarde!';
