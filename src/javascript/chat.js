@@ -82,7 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Content-Type": "application/json",
                 },
                 // envia o valor como JSON
-                body: JSON.stringify({ input: chatInput.value }), 
+                body: JSON.stringify({ 
+                    input: chatInput.value,
+                    context: 'text',
+                }), 
             });
 
             // converte a resposta em um objeto javascript
