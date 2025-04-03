@@ -30,7 +30,7 @@ export function typing(element, text, time){
 
     function type(){
         if(i < words.length){
-            element.textContent += words[i];
+            element.innerHTML += words[i];
             i++;
 
             setTimeout(type, time);
