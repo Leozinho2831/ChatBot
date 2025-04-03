@@ -36,6 +36,8 @@ export function typing(element, text, time){
                 isTag = true;
                 constructionTag += words[i];
                 i++;
+                console.log('inicio tag <', constructionTag);
+                
             } else if(isTag){
                 constructionTag += words[i];
 
@@ -45,13 +47,13 @@ export function typing(element, text, time){
                     element.innerHTML += constructionTag;
                     constructionTag = '';
                     i++
-                    console.log(constructionTag);
+                    console.log('segunda parte', constructionTag);
                     
                 }
             } else {
                 element.innerHTML += words[i];
                 i++;
-                console.log(element.innerHTML);
+                console.log(element.innerHTML, 'final');
                 
             }
 
