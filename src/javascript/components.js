@@ -27,11 +27,29 @@ export function typing(element, text, time){
     const words = text.split('');
     
     let i = 0;
+    let isTag = false;
+    let constructionTag = '';
 
     function type(){
         if(i < words.length){
-            element.innerHTML += words[i];
-            i++;
+            if(words[i] == '<'){
+                isTag = true;
+                constructionTag += words[i];
+                i++;
+            } else if(isTag){
+                constructionTag += words[i];
+
+                if(words[i] == '>'){
+                    isTag = false;
+
+                    element.innerHTML += constructionTag;
+                    constructionTag = '';
+                    i++
+                }
+            } else {
+                element.innerHTML += words[i];
+                i++;
+            }
 
             setTimeout(type, time);
         }
