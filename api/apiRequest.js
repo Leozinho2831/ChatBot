@@ -19,7 +19,7 @@ export default async function apiRequestIA(req, res){
             const genIA = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
             const model = genIA.getGenerativeModel({ model: 'gemini-2.0-flash'});  
             
-            let prompt = input;
+            let prompt = `Formate o seguinte texto mantendo a estrutura original e garantindo que as quebras de linha sejam preservadas corretamente. Apenas o texto formatado, sem explicações. Use \\n para representar quebras de linha.\n\n${input}`;
 
             // cria um prompt para o histórico de conversas
             if(context && context == 'resume'){
