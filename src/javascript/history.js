@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let messageHistory;
 
-        function textHistory(messageHistory){
+        function textHistory(messageHistoryFormated){
             const messagesContents = document.querySelectorAll('.js-message');
 
             const newMessageContent = messagesContents[messagesContents.length - 1];
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             newMessageContent.classList.remove(classAnimateGlass);
             newMessageContent.classList.add(classHoverBg);
             
-            newMessageContent.children[1].textContent = messageHistory;
+            newMessageContent.children[1].textContent = messageHistoryFormated;
         }
 
         try {
@@ -43,9 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     
             const data = await response.json();
-            messageHistory = data.message;
+            const messageHistory = data.message;
+            const messageHistoryFormated = messageHistory
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-            textHistory(messageHistory);
+            textHistory(messageHistoryFormated);
         } catch(error){
             messageHistory = 'Erro';
             textHistory(messageHistory);
