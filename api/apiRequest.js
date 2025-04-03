@@ -24,10 +24,10 @@ export default async function apiRequestIA(req, res){
             if(context){
                 if(context == 'text'){
                     // cria o prompt com quebra de linhas
-                    prompt = `Reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações.\n\n${prompt}`;
+                    prompt = `Reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações.\n\n${prompt}`;
                 } else if(context == 'resume'){
                     // cria um prompt para o histórico de conversas
-                    prompt = `Gere um título curto e impactante de 2 a 3 palavras para o seguinte texto. Apenas o título, sem explicação\n"${input}"`;
+                    prompt = `Crie um título curto e direto, com no máximo 3 palavras, que capture a essência do seguinte texto para ser usado em uma lista de "Recentes". Foque no tópico principal do texto. Retorne apenas o título, sem explicações ou variações.\n\n"${input}"`;
                 }
             }
 
