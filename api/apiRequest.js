@@ -24,10 +24,12 @@ export default async function apiRequestIA(req, res){
             if(context){
                 if(context == 'text'){
                     // cria o prompt com quebra de linhas
-                    prompt = `Reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações.\n\n${prompt}`;
+                    // prompt = `Reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações.\n\n${prompt}`;
+                    prompt = `Se a entrada do usuário for uma única palavra ou uma frase curta que solicita uma explicação (por exemplo, "me index", "o que é index", "explique index"), forneça uma breve explicação sobre o significado da palavra ou frase e pergunte ao usuário o que ele gostaria de saber sobre isso, e caso seja uma pergunta totalmente formulada, responda o usuário completamente e reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações do porque da formatação ou algo do gênero. 
+                    \n\n${prompt}`
                 } else if(context == 'resume'){
                     // cria um prompt para o histórico de conversas
-                    prompt = `Crie um título curto e direto, com no máximo 3 palavras, que capture a essência do seguinte texto para ser usado em uma lista de "Recentes". Foque no tópico principal do texto. Retorne apenas o título, sem explicações ou variações.\n\n"${input}"`;
+                    prompt = `Crie um título curto e direto, com no máximo 2 palavras, que capture a essência do seguinte texto para ser usado em uma lista de "Recentes". Foque no tópico principal do texto. Retorne apenas o título, sem explicações ou variações.\n\n"${input}"`;
                 }
             }
 
