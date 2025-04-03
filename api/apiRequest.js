@@ -19,12 +19,20 @@ export default async function apiRequestIA(req, res){
             const genIA = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
             const model = genIA.getGenerativeModel({ model: 'gemini-2.0-flash'});  
             
-            let prompt = `Formate o seguinte texto mantendo a estrutura original e garantindo que as quebras de linha sejam preservadas corretamente. Apenas o texto formatado, sem explicações. Use \\n para representar quebras de linha.\n\n${input}`;
+            let prompt = `${input}`;
 
-            // cria um prompt para o histórico de conversas
-            if(context && context == 'resume'){
-                prompt = `Gere um título curto e impactante de 2 a 3 palavras para o seguinte texto. Apenas o título, sem explicação\n"${input}"`;
+            if(context){
+                if(context == 'text'){
+                    // cria o prompt com quebra de linhas
+                    prompt = `Reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações.\n\n${prompt}`;
+                } else if(context == 'resume'){
+                    // cria um prompt para o histórico de conversas
+                    prompt = `Gere um título curto e impactante de 2 a 3 palavras para o seguinte texto. Apenas o título, sem explicação\n"${input}"`;
+                }
             }
+
+            
+            
             // gera a resposta com texto da entrada
             const result = await model.generateContent(prompt);
             
