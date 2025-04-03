@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lastMessageIA.children[0].remove();
         
             const responseIA = lastMessageIA.children[0].children[1];
+            console.log(responseIA);
         
             typing(responseIA, messageIAFormated, 15);
         }
