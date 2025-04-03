@@ -92,14 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             // acessa a mensagem após a promissa resolver
             const messageIA = data.message;
-            console.log(messageIA);
             
             const messageIAFormated = messageIA
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\n/g, '<br>');
-
-            console.log(messageIAFormated);
-            
 
             displayMessage(messageIAFormated);  
         } catch(error) {    
