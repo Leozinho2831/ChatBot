@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
             newMessageContent.classList.add(classHoverBg);
             
             newMessageContent.children[1].textContent = messageHistoryFormated;
+
+            
         }
 
         try {
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             const messageHistory = data.message;
             const messageHistoryFormated = messageHistory
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                .replace(/\*\*(.*?)\*\*/g, '');
 
             textHistory(messageHistoryFormated);
         } catch(error){
