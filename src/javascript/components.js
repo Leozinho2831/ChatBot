@@ -27,37 +27,6 @@ export function typing(element, text, time){
     const words = text.split('');
     
     let i = 0;
-    let isTag = false;
-    let constructionTag = '';
-
-    // function type(){
-    //     if(i < words.length){
-    //         if(words[i] == '<'){
-    //             isTag = true;
-    //             constructionTag += words[i];
-    //             console.log('inicio tag <');
-    //             console.log(isTag);
-                
-    //         } else if(isTag){
-    //             constructionTag += words[i];
-
-    //             if(words[i] == '>'){
-    //                 isTag = false;
-
-    //                 element.innerHTML += constructionTag;
-    //                 constructionTag = '';
-    //                 console.log('final da tag >');
-                    
-    //                 console.log(isTag);
-    //             }
-    //         } else {
-    //             element.innerHTML += words[i];
-    //         }
-
-    //         i++;
-    //         setTimeout(type, time);
-    //     }
-    // }
     
     function type(){
         if(i < words.length){
