@@ -45,6 +45,8 @@ export function typing(element, text, time){
                     element.innerHTML += constructionTag;
                     constructionTag = '';
                     i++
+                    console.log(constructionTag);
+                    
                 }
             } else {
                 element.innerHTML += words[i];
@@ -52,8 +54,6 @@ export function typing(element, text, time){
                 console.log(element.innerHTML);
                 
             }
-            console.log('Funcionou, não sei porque não foi no element', element);
-            
 
             setTimeout(type, time);
         }
