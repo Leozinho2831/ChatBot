@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ 
                     input: chatInput.value,
                     context: 'text',
-                }), 
+                }),
             });
 
             // converte a resposta em um objeto javascript
