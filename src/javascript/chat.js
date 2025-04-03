@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentChat.innerHTML += chatMessageIA();
         }  
 
-        function displayMessage(messageIA){
+        function displayMessage(messageIAFormated){
             openMessagesText();
             copyTextAI();
             chatInput.value = '';
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
             const responseIA = lastMessageIA.children[0].children[1];
         
-            typing(responseIA, messageIA, 15);
+            typing(responseIA, messageIAFormated, 15);
         }
 
         // Mensagem da Ia
@@ -89,8 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             // acessa a mensagem após a promissa resolver
             const messageIA = data.message;
+            const messageIAFormated = messageIA
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '<br>');
 
-            displayMessage(messageIA);  
+            displayMessage(messageIAFormated);  
         } catch(error) {    
             const textError = 'Houve um problema, tente novamente mais tarde!';
 
