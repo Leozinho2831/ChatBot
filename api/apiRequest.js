@@ -31,8 +31,7 @@ export default async function apiRequestIA(req, res){
                         prompt += `${item.tipo === 'user' ? 'User' : 'IA'}: ${item.messageUser}\n`;
                     });
                     // cria o prompt com quebra de linhas
-                    // prompt = `Reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações.\n\n${prompt}`;
-                    prompt += `Responda completamente e preserve quebras de linha ("\n") e negrito ("**") quando for textos grandes e explicativos para o usuário compreender melhor, sem explicações de formatação. Siga também, se o usuário não mudar o tema, o contexto que há no prompt\n\n${prompt}`;
+                    prompt += `Responda completamente e preserve quebras de linha ("\n"), negrito ("**") e itálico ("*") quando for textos grandes e explicativos para o usuário compreender melhor, sem explicações de formatação. Siga também, se o usuário não mudar o tema, o contexto que há no prompt\n\n${prompt}`;
                 } else if(context == 'resume'){
                     // cria um prompt para o histórico de conversas
                     prompt = `Crie um título curto e direto, com no máximo 2 palavras, que capture a essência do seguinte texto para ser usado em uma lista de "Recentes". Foque no tópico principal do texto. Retorne apenas o título, sem explicações ou variações.\n\n"${input}"`;
