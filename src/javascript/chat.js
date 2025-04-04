@@ -68,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
             lastMessageIA.children[0].remove();
         
             const responseIA = lastMessageIA.children[0].children[1];
+
+            const time = 10;
         
-            typing(responseIA, messageIAFormated, 15);
+            typing(responseIA, messageIAFormated, time);
         }
 
         // Mensagem da Ia
