@@ -51,7 +51,7 @@ export default function app(){
             <button class="uppercase font-semibold text-sm text-gray-400 bg-gray-950/60 px-6 py-3 rounded-full hover:bg-gray-950 hover:text-red-600/90 js-deleteHistory">Apagar</button>
         </div>
         <main class="relative grid grid-rows-[1fr,auto] grid-cols-1 gap-12 h-screen bg-gray-950 py-8 px-10 max-sm:gap-8 max-sm:py-6 max-sm:px-8">
-            <section class="relative justify-self-center self-center max-w-[900px] w-full max-h-[90%] h-full mt-16 py-4 px-5 flex flex-col gap-10 overflow-y-auto scrollable js-contentChat">
+            <section class="relative justify-self-center self-center max-w-[900px] w-full max-h-[90%] h-full mt-16 py-4 px-5 flex flex-col gap-10 overflow-y-auto scroll-smooth scrollable js-contentChat">
                     <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center uppercase font-bold tracking-widest text-gray-200 text-4xl max-sm:3xl js-titleChat"></h1>
             </section>
             <p class="hidden absolute z-30 opacity-0 font-medium text-sm bg-gray-800/80 text-gray-300/80 py-2 px-4 rounded-xl shadow-[0_2px_3px_rgba(0,0,0,0.2)] js-alertCopy">A mensagem foi copiada!</p>
