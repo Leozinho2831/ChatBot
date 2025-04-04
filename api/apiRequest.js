@@ -28,7 +28,7 @@ export default async function apiRequestIA(req, res){
                 if(context == 'text'){
                     prompt = `Histórico da conversa:\n`;
                     historyUser.forEach(item => {
-                        prompt += `${item.tipo === 'user' ? 'User' : 'IA'}: ${input}\n`;
+                        prompt += `${item.tipo === 'user' ? 'User' : 'IA'}: ${messageUser}\n`;
                     });
                     // cria o prompt com quebra de linhas
                     // prompt = `Reescreva o seguinte texto garantindo que as quebras de linha e as partes em negrito sejam preservadas corretamente. Use "\n" para representar as quebras de linha no texto formatado e ** para as partes em negrito. Apenas o texto formatado, sem explicações.\n\n${prompt}`;
