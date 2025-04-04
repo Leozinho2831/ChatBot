@@ -50,18 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             contentChat.innerHTML += chatMessage(chatInput.value);
             contentChat.innerHTML += chatMessageIA();
-        }  
+        }
+
+        buttonConversation.onclick = (event) => {
+            if(!buttonConversation.disabled && event.target.closest('.js-newConversation')){
+                location.reload();
+            }
+        }
 
         function displayMessage(messageIAFormated){
             openMessagesText();
             copyTextAI();
             chatInput.value = '';
-
-            buttonConversation.onclick = (event) => {
-                if(!buttonConversation.disabled && event.target.closest('.js-newConversation')){
-                    location.reload();
-                }
-            }
         
             const contentIA = document.querySelectorAll('.js-contentIA');
             
