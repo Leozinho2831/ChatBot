@@ -37,8 +37,6 @@ export default async function apiRequestIA(req, res){
                     prompt = `Crie um título curto e direto, com no máximo 2 palavras, que capture a essência do seguinte texto para ser usado em uma lista de "Recentes". Foque no tópico principal do texto. Retorne apenas o título, sem explicações ou variações.\n\n"${input}"`;
                 }
             }
-
-            
             
             // gera a resposta com texto da entrada
             const result = await model.generateContent(prompt);
