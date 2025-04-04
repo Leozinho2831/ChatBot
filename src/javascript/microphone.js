@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         // caso der erro
-        recognition.onerror = (event) => {
+        recognition.onerror = () => {
             alertAudio.classList.remove('hidden');
         };
 
