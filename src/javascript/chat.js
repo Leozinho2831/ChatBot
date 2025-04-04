@@ -56,6 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
             openMessagesText();
             copyTextAI();
             chatInput.value = '';
+
+            buttonConversation.onclick = (event) => {
+                if(!buttonConversation.disabled && event.target.closest('.js-newConversation')){
+                    location.reload();
+                }
+            }
         
             const contentIA = document.querySelectorAll('.js-contentIA');
             
@@ -97,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const messageIAFormated = messageIA
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, "<em>$1</em>")
                 .replace(/\n/g, '<br>');
 
             displayMessage(messageIAFormated);  
