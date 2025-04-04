@@ -27,7 +27,7 @@ export default function app(){
     </div>
     <div class="grid-container max-sm:!grid-cols-1">
         <header class="w-full h-screen p-[3px] py-6 bg-gray-900 max-sm:w-[70%] max-sm:absolute max-sm:z-10 max-sm:menuMobile js-containerMenu">
-            <section class="grid grid-rows-[auto_minmax(auto,350px)_1fr] h-[calc(100%-110px)] gap-8 mt-24 js-sectionMenu">
+            <section class="grid grid-rows-[auto_minmax(200px,350px)_1fr] h-[calc(100%-110px)] gap-8 mt-24 js-sectionMenu">
                 <div class="px-6">
                     <button class="uppercase font-semibold text-sm text-gray-400 bg-gray-950/60 flex items-center gap-4 px-4 py-3 rounded-full js-newConversation" disabled>
                         <img class="w-4 h-4" src="src/images/plus.svg" alt="Sinal de mais">
