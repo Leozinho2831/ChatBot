@@ -1,11 +1,12 @@
 // aqui faço a requisição do banco de dados, dando um nome para buscar e a versão dele, caso o banco não exisitir ele irá criar um indexedDB de dados com esse nome
 const requestDB = indexedDB.open("bancoChat", 1);
+let db;
 
 requestDB.onupgradeneeded = (event) => {
-    let db = event.target.result;
+    db = event.target.result;
 
     // cria uma tabela, como uma caixa para gaurdar os itens
-    db.createObjectStore('nav', { 
+    db.createObjectStore('nav', {
         keyPath: 'id',
         autoIncrement: true,
     });
@@ -13,7 +14,7 @@ requestDB.onupgradeneeded = (event) => {
 
 // executa se abrir o banco com sucesso
 requestDB.onsuccess = (event) => {
-    let db = event.target.result;
+    db = event.target.result;
     
     // let transaction = db.transaction('nav', 'readwrite');
 }
