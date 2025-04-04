@@ -24,7 +24,7 @@ export default async function apiRequestIA(req, res){
             historyUser.push({ tipo: 'user', messageUser: input});
 
             let prompt = `Histórico da conversa:\n`;
-            historicoConversa.forEach(item => {
+            historyUser.forEach(item => {
                 prompt += `${item.tipo === 'user' ? 'User' : 'IA'}: ${input}\n`;
             });
 
