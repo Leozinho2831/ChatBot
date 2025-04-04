@@ -22,10 +22,11 @@ export default async function apiRequestIA(req, res){
             const model = genIA.getGenerativeModel({ model: 'gemini-2.0-flash'});  
             
             historyUser.push({ tipo: 'user', messageUser: input});
+            let prompt;
 
             if(context){
                 if(context == 'text'){
-                    let prompt = `Histórico da conversa:\n`;
+                    prompt = `Histórico da conversa:\n`;
                     historyUser.forEach(item => {
                         prompt += `${item.tipo === 'user' ? 'User' : 'IA'}: ${input}\n`;
                     });
