@@ -97,7 +97,7 @@ export function copyTextAI(){
                     }, 1500);
 
                 })
-                .catch((error) => {       
+                .catch(() => {       
 
                     alertCopy.textContent = 'Não conseguimos fazer a copia';
                     alertCopy.classList.add(classTextCopy);
