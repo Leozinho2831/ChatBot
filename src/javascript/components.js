@@ -22,6 +22,12 @@ export const firstHistory = () => {
             `;
 }
 
+// scroll smooth
+function scroll(){
+    const contentChat = document.querySelector('.js-contentChat');
+    contentChat.scrollTop = contentChat.scrollHeight;
+}
+
 // typing animation
 export function typing(element, text, time){
     const words = text.split('');
@@ -32,6 +38,8 @@ export function typing(element, text, time){
         if(i < words.length){
             element.innerHTML = text.substring(0, (i + 1));
 
+            scroll();
+            
             i++;
             setTimeout(type, time);
         }
